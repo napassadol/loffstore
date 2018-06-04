@@ -1,0 +1,172 @@
+﻿
+<section class="container">
+    <div class="row" ng-controller="showFormController">
+        <div class="col-lg-12 text-center shop-title-store">
+            <h1 class="section-title">Your Order</h1>
+            <p class="sub-title">Excepteur sint occaecat cupidatat non proident sunt<br>in culpa officia deserunt</p>
+        </div>
+        <div class="col-md-12 box-blog">
+            <div class="content-table-cart">
+                <div class="col-md-6 number-cart-item"><p class="total-items">You Have {{totalCount}} Items In Your Cart</p></div>
+                <div class="bt-tourn-back">
+                    <a href="#/products">
+                        <i class="fa fa-power-off"></i>back to store
+                    </a>
+                </div>
+                <!-- items -->
+                <table class="table tab-shop">
+                    
+                    <!-- header -->
+                    <tr class="tab-top-txt">
+                        <td><p>Product</p></td>
+                        <td class="tdCenter"><p>Quantity</p></td>
+                        <td class="tdRight"><p>Price</p></td>
+                        <td />
+                    </tr>
+
+                    <!-- empty cart message -->
+                    <tr ng-hide="{{totalCount}} > 0">
+                        <td class="tdCenter" colspan="4">
+                            Your cart is empty.
+                        </td>
+                    </tr>
+
+                    <!-- cart items -->
+                    <tr ng-repeat="data in productsCart | orderBy:'name'">
+                        <td class="cart-column-img">
+                            <div class="col-md-3 cart-prod-img">
+                                <img ng-src="static/images/books/{{data.image}}" alt="{{data.title}}" />
+                                <p>{{data.title}}</p>
+                            </div>
+                        </td>
+                        <td class="cart-quantity">
+                            <div class="input-append">
+                                <!-- use type=tel instead of  to prevent spinners -->
+                                <input class="btn bt-minus-prod" type="button"
+                                       ng-disabled="data.quantity <= 1"
+                                       ng-click="addProduct(data, -1)" value="-">
+                                <input class="text-center quantity-prod"
+                                       ng-model="data.quantity"
+                                       ng-change="cart.saveItems()" />
+                                <input class="btn btn-lg btn-primary bt-plus-prod" type="button"
+                                       ng-disabled="data.quantity >= 1000"
+                                       ng-click="addProduct(data, 1)" value="+">
+
+                            </div>
+                        </td>
+                        <td class="tdRight"><p>{{data.quantity}} X {{data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</p></td>
+                        <td class="ic-remove" title="remove from cart">
+                            <a href="" ng-click="removeProduct($index)">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <!-- footer -->
+                    <tr class="cart-total">
+                        <td><p>Total</p></td>
+                        <td class="tdCenter"><p>{{totalItems}}</p></td>
+                        <td class="tdRight"><p>Subtotal {{totalPrice * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</p></td>
+                        <td />
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="btn-checkout-prod">
+                            <button class="btn btn-lg btn-primary cart-clear-all"
+                                    ng-click="clearItems()"
+                                    ng-disabled="totalCount < 1">
+                                <i class="icon-trash icon-white" /> clear cart
+                            </button>
+                            <div class="btn-payment">
+
+                                <button class="btn btn-lg btn-primary checkout"
+                                        ng-click="play()"
+                                        ng-disabled="totalCount < 1">
+                                    <i class="icon-ok icon-white" /> order by mail
+                                </button>
+                                <button class="btn btn-lg btn-primary checkout"
+                                        ng-click="checkout('PayPal', selectCurrency)"
+                                        ng-disabled="totalCount < 1">
+                                    <i class="icon-ok icon-white" /> check out PayPal
+                                </button>
+                                <button class=""
+                                        ng-click="checkout('PayPal', selectCurrency)"
+                                        ng-disabled="totalCount < 1">
+                                    <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" alt="checkout PayPal" />
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!--Form Order with Email-->
+        <div class="col-md-12 content-send-order animate-show animate-hide" ng-show="animate" ng-controller="postController">
+
+            <h2>Please compile the form!</h2>
+            <div class="box-content contact">
+
+                <div class="panel-body">
+                    <form ng-submit="submitForm(contactform)" name="contactform" class="form-horizontal">
+                        <div class="form-group" ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
+                            <div class="col-lg-12">
+                                <input ng-model="formData.inputName" type="text" class="form-control" id="inputName" name="inputName" placeholder="Your Name" required autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error': contactform.inputSurname.$invalid && submitted }">
+                            <div class="col-lg-12">
+                                <input ng-model="formData.inputSurname" type="text" class="form-control" id="inputSurname" name="inputSurname" placeholder="Your Surname" required autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
+                            <div class="col-lg-12">
+                                <input ng-model="formData.inputEmail" type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Your Email" required autocomplete="off">
+                            </div>
+                        </div>
+                        <!-- COUNTRY -->
+                        <div class="form-group" ng-class="{'form-group':true}">
+                            <div class="col-lg-12">
+                                <select ng-model="formData.country" class="select-opt form-control-select">
+                                    <option class="frt-options" value=""> - Select a Country -</option>
+                                    <option ng-repeat="country in countries" class="other-opt" value="{{country.name}}">{{country.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- City -->
+                        <div class="form-group" ng-class="{'form-error':contactForm.city.$dirty && contactForm.city.$invalid, 'form-group':true}">
+                            <div class="col-lg-12"><input type="text" name="city" class="form-control" ng-model="formData.city" placeholder="City" ng-minlength="3" required="" autocomplete="off" /></div>
+                            <div ng-messages="contactForm.city.$error" ng-show="contactForm.city.$dirty">
+                                <div ng-message="required">Required City</div>
+                            </div>
+                        </div>
+                        <!-- ADDRESS -->
+                        <div class="form-group" ng-class="{'form-error':contactForm.address.$dirty && contactForm.address.$invalid, 'form-group':true}">
+                            <div class="col-lg-12"><input type="text" name="address" class="form-control" ng-model="formData.address" placeholder="Address" ng-minlength="3" required="" autocomplete="off" /></div>
+                            <div ng-messages="contactForm.address.$error" ng-show="contactForm.address.$dirty">
+                                <div ng-message="minlength">Address too short</div>
+                                <div ng-message="required">Required Address</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
+                            <div class="col-lg-12">
+                                <textarea ng-model="formData.inputMessage" class="form-control" rows="4" id="inputMessage" name="inputMessage" placeholder="Your message..." required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-lg btn-primary checkout" ng-disabled="submitButtonDisabled">
+                                    Send Order
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

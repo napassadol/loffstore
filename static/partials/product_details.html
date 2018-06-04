@@ -1,0 +1,125 @@
+﻿
+<section class="pattern-1">
+    <div class="container content-top-about">
+        <div class="col-md-12 content-top-about">
+            <div class="fadeInUp animated">
+                <img alt="" src="static/images/top-book4.png">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container page-details-product">
+    <div class="row">
+        <div class="col-md-12 table-padding" ng-controller="listProductsCtrl">
+ 
+                <div class="panel panel-info-full" ng-controller="detailsCtrl">
+                    
+                    <div class="list-product">
+                        <div class="col-md-3 my-shop-animation">
+                            <div class="box-prod">
+                                <div class="box-img-book">
+                                    <img ng-src="static/images/books/{{product.image}}">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-9 box-desc-detail">
+                                <h2 class="title-product">{{product.title}}</h2>
+
+                                <p class="">{{product.description}}</p>
+
+                                <p class="author-txt"><span>Author: </span>{{product.author}}</p>
+
+                                <p class="cat-txt"><span>Category: </span>{{getCategory(product.categoryId)}}</p>
+
+                                <p class="book-price"> {{product.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}<span ng-class="{'vis-hidden': data.first_price == 0.00}"> {{product.first_price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></p>
+
+                                <div class="box-btn-shop">
+                                    <div class="bt-img"><button type="button" ng-click="addProduct(product, 1)" class="btn btn-add-cart"><i class="fa fa-shopping-bag"></i>Buy</button></div>
+                                </div>
+                        </div>
+
+                        <div class="col-md-12 detail-box-desc">
+                            <div class="col-md-3"><h1 class="txt-info-vertical">Info</h1></div>
+                            <div class="col-md-9 info-box">
+                                <p class="cat-txt" ng-show="productDetails.infoTitle1 != null"><span>{{productDetails.infoTitle1}}: </span>{{productDetails.infoProd1}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle2 != null"><span>{{productDetails.infoTitle2}}: </span>{{productDetails.infoProd2}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle3 != null"><span>{{productDetails.infoTitle3}}: </span>{{productDetails.infoProd3}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle4 != null"><span>{{productDetails.infoTitle4}}: </span>{{productDetails.infoProd4}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle5 != null"><span>{{productDetails.infoTitle5}}: </span>{{productDetails.infoProd5}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle6 != null"><span>{{productDetails.infoTitle6}}: </span>{{productDetails.infoProd6}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle7 != null"><span>{{productDetails.infoTitle7}}: </span>{{productDetails.infoProd7}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle8 != null"><span>{{productDetails.infoTitle8}}: </span>{{productDetails.infoProd8}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 service-banner">
+                        <div class="slider">
+                            <div id="slider" class="flexslider .flexslider-attachments">
+                                <ul class="slides">
+                                    <li>
+                                        <div class="col-md-8 product-items-details">
+                                            <h3>Samsung</h3>
+                                            <a href="">Smartphone - Accessories </a>
+                                            <div class="product-item-des">Launch Tach Ltd Specialzes in car 
+                                            diagnostics and tessting tools that are mobile- friendly and superior in quality.
+                                            </div>
+                                            <a class="btn" href=""><span>Shop Brand Now </span></a>
+                                        </div>
+                                        <div class="col-md-4"><img src="static/images/books/1.jpg" alt="" /></div>
+                                    </li>
+                                    <li>
+                                        <div class="col-md-8 product-items-details">
+                                            <h3>Apple</h3>
+                                            <a href="">Smartphone - Accessories </a>
+                                            <div class="product-item-des">
+                                                Launch Tach Ltd Specialzes in car
+                                                diagnostics and tessting tools that are mobile- friendly and superior in quality.
+                                            </div>
+                                            <a class="btn" href=""><span>Shop Brand Now </span></a>
+                                        </div>
+                                        <div class="col-md-4"><img src="static/images/books/2.jpg" alt="" /></div>
+                                    </li>
+                                    <li>
+                                        <div class="col-md-8 product-items-details">
+                                            <h3>Logitech</h3>
+                                            <a href="">Smartphone - Accessories </a>
+                                            <div class="product-item-des">
+                                                Launch Tach Ltd Specialzes in car
+                                                diagnostics and tessting tools that are mobile- friendly and superior in quality.
+                                            </div>
+                                            <a class="btn" href=""><span>Shop Brand Now </span></a>
+                                        </div>
+                                        <div class="col-md-4"><img src="static/images/books/3.jpg" alt="" /></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function ($) {
+    
+    /*************************************************************
+     FlexSlider Slide
+    *************************************************************/
+        $(function flexImg() {
+            "use strict";
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: ""
+
+            });
+        });
+
+    });
+</script>

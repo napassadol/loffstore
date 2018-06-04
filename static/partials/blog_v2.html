@@ -1,0 +1,49 @@
+﻿
+
+<section class="services content-header"> 
+    <div class="cover"></div>
+    <div class="container">
+        <div class="row">
+            <h1 class="slide-page-text tlt">Blog</h1>
+        </div>
+    </div>
+</section>
+
+<section class="blog-v2" ng-controller="listBlogInfoCtrl">
+        <div class="table-padding-blog2">
+                <div class="blog-item" ng-repeat="info in blogInfo">
+                    <div class="container">
+                        <div class="col-md-6 ibook-container">
+                            <img ng-src="static/images/blog/{{info.image}}" alt="" />
+                        </div>
+                        <div class="col-md-6 blog-info-desc">
+                            <h2>{{info.title}}</h2>
+                            <p class="blog-date">{{info.publishDate}} - <span>by {{info.author}}</span></p>
+                            <p class="blog-info">
+                                {{info.description}}
+                            </p>
+                            <p class="blog-tags">
+                                <i class="fa fa-tag" aria-hidden="true"></i><span>{{info.tags}}</span>
+                            </p>
+                            <button class="btn btn-primary btn-blog">Read More</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+</section>
+
+
+
+
+<script>
+    $(function () {
+        "use strict";
+        setTimeout(function () {
+            $('.tlt').css("visibility", "visible");
+            $('.tlt').textillate({ in: { effect: 'bounceIn' } });
+        }, 2000);
+    });
+</script>
+
+
+

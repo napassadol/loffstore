@@ -1,0 +1,114 @@
+﻿
+<section class="content-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="slider-promotion register-box-text">
+                    <h1 class="register-top-title tlt">New Account</h1>
+                    <h1 class="register-top-title register-top-second tlt2">+ 1 watch free</h1>
+                </div>
+                <div class="fadeInRight animated abc-book">
+                    <img src="static/images/slide-book1.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <div class="col-lg-12 table-padding">
+            
+            <div id="loginbox" class="mainbox col-md-12 register-box">
+                <div class="panel panel-info">
+                    <div>
+                        <h3>New Account</h3>
+                        <p>Not our registered customer yet?</p>
+                    </div>
+                    <div class="panel-heading">
+                        <div class="panel-title">Register</div>
+                    </div>
+                    <div style="padding-top: 20px" class="panel-body">
+                        <form name="loginForm" ng-submit="" class="form-horizontal regietr-form" method="post" novalidate form-autofill-fix>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span> 
+                                <input type="text" class="form-control" placeholder="Username" required />
+                            </div>
+                            
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-lock"></i>
+                                </span> 
+                                <input type="password" class="form-control" name="password" placeholder="Password" required />
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-send"></i>
+                                </span> 
+                                <input type="email" class="form-control" name="email" placeholder="Email" required />
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span> 
+                                <input type="text" class="form-control" name="First Name" placeholder="First Name" required />
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span> 
+                                <input type="text" class="form-control" name="Last Name" placeholder="Last Name" required />
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                </span> 
+                                <input type="text" class="form-control" name="Gender" placeholder="Gender" required />
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-globe"></i>
+                                </span> 
+                                <input type="text" class="form-control" name="Address" placeholder="Address" required />
+                            </div>
+
+                            <div style="margin-top: 20px" class="form-group">
+                                <!-- Button -->
+                                <div class="col-sm-12 controls">
+                                    <button type="submit" class="btn btn-success login-btn" value="Register">Register</button>
+                                </div><br /><br />
+                            </div>
+                            
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(function () {
+        "use strict";
+        setTimeout(function () {
+            $('.tlt').css("visibility", "visible");
+            $('.tlt').textillate({ in: { effect: 'rollIn' } });
+        }, 2000);
+        setTimeout(function () {
+            $('.tlt2').css("visibility", "visible");
+            $('.tlt2').textillate({ in: { effect: 'bounceIn' } });
+        }, 3000);
+        setTimeout(function () {
+            $('.tlt2').css("visibility", "visible");
+        }, 3000);
+    });
+</script>

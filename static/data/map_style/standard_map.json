@@ -1,0 +1,16 @@
+﻿{
+  "center": {
+    "latitude": -33.869931,
+    "longitude": 151.210824
+  },
+  "zoom": 12,
+  "marker": {
+    "id": "Date.now()",
+    "coords": {
+      "latitude": -33.869931,
+      "longitude": 151.210824
+    }
+  },
+  "control": {},
+  "styles": []
+}

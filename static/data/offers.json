@@ -1,0 +1,92 @@
+﻿{
+  "offers_blog": [
+    {
+      "_id": "1",
+      "author": "Robert Doe",
+      "title": "Claritas Est etiam process",
+      "description": "Productivity concept from motivation and goal setting to focus and decision making thatexplain why some people and companies get so much done.",
+      "image": "1a.jpg",
+      "categoryId": "1",
+      "publishDate": "12-02-2016"
+    },
+    {
+      "_id": "2",
+      "author": "Paul Rio",
+      "title": "Claritas Est etiam process",
+      "description": "Productivity concept from motivation and goal setting to focus and decision making thatexplain why some people and companies get so much done.",
+      "image": "2a.jpg",
+      "categoryId": "1",
+      "publishDate": "12-02-2016"
+    },
+    {
+      "_id": "3",
+      "author": "Simon Colle",
+      "title": "Claritas Est etiam process",
+      "description": "Productivity concept from motivation and goal setting to focus and decision making thatexplain why some people and companies get so much done.",
+      "image": "3a.jpg",
+      "categoryId": "1",
+      "publishDate": "12-02-2016"
+    }
+  ],
+  "offers_home": [
+    {
+      "_id": "4",
+      "author": "Dante Alighieri",
+      "title": "Monitor HP",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolore magna aliqua.",
+      "image": "top-book1.png",
+      "price": 363.50,
+      "categoryId": "1"
+    },
+    {
+      "_id": "5",
+      "author": "Dante Alighieri",
+      "title": "Galaxy S7",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolore magna aliqua.",
+      "image": "top-book2.png",
+      "price": 432.00,
+      "categoryId": "1"
+    },
+    {
+      "_id": "6",
+      "author": "Dante Alighieri",
+      "title": "HP Office",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod dolore magna aliqua.",
+      "image": "top-book3.png",
+      "price": 85.00,
+      "categoryId": "1"
+    },
+    {
+      "_id": "7",
+      "author": "Dante Alighieri",
+      "title": "Claritas Est etiam process",
+      "description": "Productivity concept from motivation and goal setting to focus and decision making thatexplain why some people and companies get so much done.",
+      "image": "big_1.jpg",
+      "categoryId": "1"
+    }
+  ],
+  "offers_electro": [
+    {
+      "_id": "16",
+      "title": "Monitor HP",
+      "description": "Bigo electric chariot x2 Personal transporter, Off road 2 wheel shop scooter self balancing",
+      "image": "electro.jpg",
+      "first_price": 1499.00,
+      "price": 1200.00,
+      "categoryId": "1"
+    }
+
+  ],
+  "offers_radio": [
+    {
+      "_id": "17",
+      "title": "Radio HP",
+      "description": "Bigo angularjs chariot x2 Personal transporter, Off road 2 wheel electric scooter self balancing",
+      "image": "radio.png",
+      "first_price": 399.00,
+      "price": 259.00,
+      "categoryId": "1"
+    }
+
+  ]
+}

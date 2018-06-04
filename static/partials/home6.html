@@ -1,0 +1,174 @@
+﻿
+
+
+
+<section>
+    <div owlcarousel id="owl-demo" class="owl-carousel">
+        <div class="item item2" style="background-image: url(static/images/slider/slider4.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="description">
+                        <span class="title">Sound Logitec</span>
+                        <span class="subtitle">Offer 20% Off</span>
+                        <span class="des"> Best sound ready only for you. Take your time and choose your perfect Tv!</span>
+                        <a href="" class="btn">shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item item2" style="background-image: url(static/images/slider/slider3.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="description">
+                        <span class="title">Headphone</span>
+                        <span class="subtitle">2 Products 40% Off</span>
+                        <span class="des"> Best headphone ready only for you. Take your time and choose your perfect headphone!</span>
+                        <a href="" class="btn">shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item item1" style="background-image: url(static/images/slider/slider2.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="description">
+                        <span class="title">New Season</span>
+                        <span class="subtitle">TV Lcd 40% Off</span>
+                        <span class="des"> Best Lcd ready only for you. Take your time and choose your perfect tv!</span>
+                        <a href="" class="btn">shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section> <!-- .cd-hero -->
+
+<!--TOP OFFERS-->
+
+<section ng-controller="listTopOffersCtrl">
+    <div class="content-top-banner" ng-controller="listProductsCtrl">
+        <div class="col-md-4 box-product-stock" ng-repeat="data in offers_top | limitTo:3">
+            <div class="sub-box">
+                <div class="col-md-6 book-desc">
+                    <h2>{{data.title}}</h2>
+                    <p>{{data.description}}</p>
+                    
+                    <p class="book-price">{{data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</p>
+                </div>
+                <div class="col-md-6 adv-top-prod"><img class="top-book" ng-src="static/images/{{data.image}}" alt="" /></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--FEATURED PRODUCTS-->
+
+<section class="container" ng-controller="listProductsCtrl">
+    <div class="row">
+        <div class="col-lg-12 text-center shop-title-store">
+            <h1 class="section-title">FEATURED <span>PRODUCTS</span></h1>
+            <p class="sub-title">Excepteur sint occaecat cupidatat non proident sunt<br>in culpa officia deserunt</p>
+        </div>
+        <div class="col-lg-12 content-store">
+            <div class="col-md-8">
+                <div class="col-md-3 my-shop-animation" ng-repeat="data in products | limitTo:8">
+                    <div class="box-prod group-book">
+                        <div class="box-img-book">
+                            <img ng-src="static/images/books/{{data.image}}">
+                        </div>
+                        <h2 class="title-book">{{data.title}}</h2>
+
+                        <p class="category-txt">{{getCategory(data.categoryId)}}</p>
+
+                        <p class="book-price" > {{data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}<span ng-class="{'vis-hidden': data.first_price == 0.00}">{{data.first_price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></p>
+                            
+                        <div class="box-btn-shop">
+                            <div class="bt-img"><a class="btn btn-det-cart" href="#/products/{{data.id}}"><i class="fa fa-list"></i></a></div>
+                            <div class="bt-img bt-img-right"><button type="button" ng-click="addProduct(data, 1)" class="btn btn-add-cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></div> 
+                        </div>
+                    </div>      
+                </div>
+            </div>
+             <div class="col-md-4 offer-electro" ng-controller="electroOffersCtrl">
+                 <div class="bord-electro" ng-repeat="data in offers_electro">
+                     <div class="electro-title"><h3 class="section-title"><span>Special</span><br /><span>Offer</span></h3></div>
+                     <div class="">
+                         <img ng-src="static/images/books/{{data.image}}" alt="">
+                         <p>{{data.description}}</p>
+                     </div>
+                     <div class="price-electro">{{data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}<span ng-class="{'vis-hidden': data.first_price == 0.00}">{{data.first_price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></div>
+                    
+                     <div class="box-btn-shop">
+                         <div class="bt-img"><a class="btn btn-det-cart" href="#/products/{{data._id}}"><i class="fa fa-list"></i></a></div>
+                         <div class="bt-img bt-img-right"><button type="button" ng-click="addProduct(data, 1)" class="btn btn-add-cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+    </div>
+</section>
+
+<!--AUTHOR BOOK-->
+
+<section class="exlusive-book" ng-controller="listProductsCtrl">
+    <span class="onsale">
+        <span class="name-save">Save</span>
+        <span>20%</span>
+        <span class="name-disc">G.SMITH</span>
+    </span>
+    <div class="container">
+        <div class="col-md-12 author-product">
+            <div class="big-tv-box">
+                <img src="static/images/led.png" alt="" />
+            </div>
+           
+            <div class="price-offer">
+                <div class="price-offer-box">
+                    <p class="tv-middle-price">$199.99</p>
+                </div>
+                <div class="desc-offer-box">
+                    <p class="">SMART TV LED 55" Full HD</p>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</section>
+
+<!--BEST SELLERS-->
+
+<section class="container" ng-controller="listProductsCtrl">
+    <div class="row">
+        <div class="col-lg-12 text-center shop-title-store">
+            <h1 class="section-title">Best <span>Sellers</span></h1>
+            <p class="sub-title">Excepteur sint occaecat cupidatat non proident sunt<br>in culpa officia deserunt</p>
+        </div>
+        <div class="col-lg-12 content-store">
+            <div class="list-product">
+                <div class="col-md-2 my-shop-animation" ng-repeat="data in best_seller">
+                    <div class="box-prod">
+                        <div class="box-img-book">
+                            <img ng-src="static/images/books/{{data.image}}">
+                        </div>
+                        <h2 class="title-book">{{data.title}}</h2>
+
+                        <p class="author-txt">{{getCategory(data.categoryId)}}</p>
+
+                        <p class="book-price"> {{data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}<span ng-class="{'vis-hidden': data.first_price == 0.00}">{{data.first_price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></p>
+                        
+                        <div class="box-btn-shop">
+                            <div class="bt-img"><a class="btn btn-det-cart" href="#/products/{{data.id}}"><i class="fa fa-list"></i></a></div>
+                            <div class="bt-img bt-img-right"><button type="button" ng-click="addProduct(data, 1)" class="btn btn-add-cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

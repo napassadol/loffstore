@@ -1,0 +1,155 @@
+﻿
+
+<section class="services content-header"> 
+    <div class="cover"></div>
+    <div class="container">
+        <div class="row">
+            <h1 class="slide-page-text tlt">Blog</h1>
+        </div>
+    </div>
+</section>
+
+<section class="container blog-v1" ng-controller="listProductsCtrl">
+        <div class="col-md-12 table-padding-prod">
+            <div class="col-md-3 column-box products-right-column">
+                <!--FILTER CATEGORIES-->
+                <div class="filter-table">
+                    <h3>Categories</h3>
+                    <div class="list-category-column">
+                        <ul>
+                            <li data-filter="all" class="active filter">All<div class="line-separator"></div><div class="line-separator2"></div></li>
+                            <li class="filter" data-filter=".category-{{category.name}}" ng-repeat="category in categories">{{category.name}}<div class="line-separator"></div><div class="line-separator2"></div></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--OFFERS PRODUCTS-->
+                <div class="special-offers">
+                    <h3>Special Offers</h3>
+                    <div class="list-offers-column">
+                        <ul>
+                            <li ng-repeat="offer in offers">
+                                <div class="col-md-5"><img ng-src="static/images/books/{{offer.image}}" alt="" /></div>
+                                <div class="col-md-7">
+                                    <h3 class="offers-book-title">{{offer.title}}</h3>
+                                    <p class="book-price"> {{offer.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}<span ng-class="{'vis-hidden': data.first_price == 0.00}"> {{offer.first_price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></p>
+                                </div>
+                                <div class="clear"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!-- Mini SLider -->
+                <div class="blog-item">
+                    <div class="slider">
+                        <div id="slider" class="flexslider .flexslider-attachments">
+                            <ul class="slides">
+                                <li data-thumb="static/images/slider/mini-slider/thumb1.jpg"><img src="static/images/slider/mini-slider/1.jpg" alt="" /></li>
+                                <li data-thumb="static/images/slider/mini-slider/thumb2.jpg"><img src="static/images/slider/mini-slider/2.jpg" alt="" /></li>
+                                <li data-thumb="static/images/slider/mini-slider/thumb3.jpg"><img src="static/images/slider/mini-slider/3.jpg" alt="" /></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="blog-desc">
+                        <h2>Blog Context book - Gallery</h2>
+                        <p class="blog-date">March 7, 2016 - <span>by Admin</span></p>
+                        <p class="blog-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, 
+                        est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. 
+                        In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus.</p>
+                        <p class="blog-tags">
+                            <i class="fa fa-tag" aria-hidden="true"></i><span>Art - Crime - Fiction</span>
+                        </p>
+
+                        <button class="btn btn-primary btn-blog">Read More</button>
+                    </div>
+                </div>
+
+                <div class="blog-item l-item">
+                    <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/71631296&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false"></iframe>
+                    <h2>Pixes - Where is my mind?</h2>
+                    <p class="blog-date">April 22, 2016 - <span>by Admin</span></p>
+                    <p class="blog-info">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam,
+                        est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero.
+                        In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus.
+                    </p>
+                    <p class="blog-tags">
+                        <i class="fa fa-tag" aria-hidden="true"></i><span>Art - Crime - Fiction</span>
+                    </p>
+
+                    <button class="btn btn-primary btn-blog">Read More</button>
+                </div>
+
+                <div class="blog-item l-item">
+                    <div class="video-container">
+                        <iframe class="" src="//player.vimeo.com/video/110690554" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h2>Cinema Dehors</h2>
+                    <p class="blog-date">Jun 14, 2016 - <span>by Admin</span></p>
+                    <p class="blog-info">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam,
+                        est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero.
+                        In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus.
+                    </p>
+                    <p class="blog-tags">
+                        <i class="fa fa-tag" aria-hidden="true"></i><span>Video - Animation</span>
+                    </p>
+
+                    <button class="btn btn-primary btn-blog">Read More</button>
+                </div>
+
+                <div class="blog-item l-item">
+                    <div class="ibook-container">
+                        <img src="static/images/blog/ibook.png" alt="" />
+                    </div>
+                    <h2>iBook Apple</h2>
+                    <p class="blog-date">Jun 14, 2016 - <span>by Admin</span></p>
+                    <p class="blog-info">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam,
+                        est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero.
+                        In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus.
+                    </p>
+                    <p class="blog-tags">
+                        <i class="fa fa-tag" aria-hidden="true"></i><span>ibook - Thriller</span>
+                    </p>
+
+                    <button class="btn btn-primary btn-blog">Read More</button>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+
+<script>
+    $(function () {
+        "use strict";
+        setTimeout(function () {
+            $('.tlt').css("visibility", "visible");
+            $('.tlt').textillate({ in: { effect: 'bounceIn' } });
+        }, 2000);
+    });
+</script>
+
+<script>
+    $(document).ready(function ($) {
+
+    /*************************************************************
+    Small FlexSlider Slide
+    *************************************************************/
+        $(function flexImg() {
+            "use strict";
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: ""
+
+            });
+        });
+    });
+</script>
+
+

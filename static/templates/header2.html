@@ -1,0 +1,162 @@
+﻿<header>
+    <div id="top" class="container box-logo-menu header2" ng-controller="topCategoriesMenuCtrl">
+      <div class="row">
+          <nav class="col-md-12 navigation-menu" role="navigation">
+              <div class="col-md-3 content-logo ">
+                  <h2>Evo<span>Tech</span></h2>
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false" aria-controls="nav-collapse1">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                  </div>
+              </div>
+              <div class="col-md-7">
+                  <div class="content-search">
+                      <input type="text" class="search-query" placeholder="Search">
+                  </div>
+              </div>
+              <!-- Top Cart -->
+              <div class="col-md-2 box-shoppingCart">
+                  <div class="list-product dropdown content-count-cart-header" uib-dropdown auto-close="disabled">
+                      <a href="" uib-dropdown-toggle class="dropdown-toggle">
+                          <img src="static/images/basket.png" alt="" />
+                          <p class="number-prod-cart">
+                              <span class="fa-stack fa-3x">
+                                  <strong class="fa-stack-1x fa-stack-text fa-inverse">{{totalCount}}</strong>
+                              </span>
+                          </p>
+                      </a>
+                      <div id="dropdown" class="dropdown-menu vertical-li dropdown-prod-cart content" role="menu">
+                          <ul>
+                              <li class="box-li-cart" ng-repeat="data in productsCart">
+                                  <div class="col-xs-3 col-md-3 box-cart-book"><img ng-src="static/images/books/{{data.image}}" /></div>
+                                  <div class="col-xs-8 col-md-8 minicart-data">
+                                      <p class="mc-name">{{data.title}}</p>
+                                      <p>{{data.quantity}} X {{data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</p>
+                                  </div>
+                                  <div class="btn-remove-prod"><a ng-click="removeProduct($index)"><i class="fa fa-times" aria-hidden="true"></i></a></div>
+                              </li>
+                          </ul>
+                          <div class="separator"></div>
+                          <div id="cartInfo"><p class="minucart-price">Subtotal {{totalPrice * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</p></div>
+                          <a href="#/orders" id="goToCheckOut">Proceed to purchase</a>
+                      </div>
+                  </div>
+                  <div id="cartInfo" class="cartInfo"><p class="minucart-price out-cart">Subtotal <span>{{totalPrice * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></p></div>
+              </div>
+
+              <div class="col-md-12 mainmenu">
+                  <div class="col-md-8 collapse navbar-collapse" id="navbar-collapse-1" >
+                      <ul class="menu-first-level">
+                          <li class="expand">
+                              <a href="#/">Home</a>
+                              <!-- DropDown Menu -->
+                              <ul class="restrain sub-menu">
+                                  <li><a href="#/">Home Version 1</a></li>
+                                  <li><a href="#/home2">Home Version 2</a></li>
+                                  <li><a href="#/home3">Home Version 3</a></li>
+                                  <li><a href="#/home4">Home Version 4</a></li>
+                                  <li><a href="#/home5">Home Version 5</a></li>
+                                  <li><a href="#/home6">Home Version 6</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="#/about">About Us</a></li>
+                          <li class="exp-mega">
+                              <a href="">Categories</a>
+                              <!-- Mega Menu Four Column -->
+                              <div class="mega-menu">
+                                  <span>
+                                      <a class="mega-title" href="">Top Categories</a>
+                                      <a href="#/products_category/{{data.id}}" ng-repeat="data in topCategories">{{data.name}}</a>
+                                  </span>
+                                  <span>
+                                      <a class="mega-title" href="">New Categories</a>
+                                      <a href="#/products_category/{{data.id}}" ng-repeat="data in newCategories">{{data.name}}</a>
+                                  </span>
+                                  <span>
+                                      <a class="mega-title" href="">Other Categories</a>
+                                      <a href="#/products_category/{{data.id}}" ng-repeat="data in otherCategories">{{data.name}}</a>
+                                  </span>
+                                  <span class="mega-menu-img">
+                                      <a href="#"><img src="static/images/open-book.png" alt=""></a>
+                                  </span>
+                              </div>
+                          </li>
+                          <li class="expand">
+                              <a href="">Pages</a>
+                              <!-- DropDown Menu -->
+                              <ul class="restrain sub-menu">
+                                  <li><a href="#/about">About</a></li>
+                                  <li><a href="#/services">Services</a></li>
+                                  <li><a href="#/login">Login</a></li>
+                                  <li><a href="#/register">Register</a></li>
+                                  <li><a href="#/products">Products</a></li>
+                                  <li><a href="#/products_right_column">Products Right Col.</a></li>
+                                  <li><a href="#/list_products">List Products</a></li>
+                                  <li><a href="#/blog_v1">Blog v1</a></li>
+                                  <li><a href="#/blog_v1_right_column">Blog v1 Right Col.</a></li>
+                                  <li><a href="#/blog_v2">Blog v2</a></li>
+                                  <li><a href="#/orders">Orders</a></li>
+                                  <li><a href="#/contact">Contact Us</a></li>
+                                  <li><a href="#/404">404 Error</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="#/contact">Contact</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-4 top-contact-company">
+                      <div class="col-xs-6 col-md-6">
+                          <p><i class="fa fa-headphones" aria-hidden="true"></i> <span>044 654 32 456</span></p>
+                      </div>
+
+                      <div class="col-xs-6 col-md-6">
+                          <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>info@evotech.com</span></p>
+                      </div>
+                  </div>
+              </div>
+              
+          </nav>
+
+      </div>
+    </div>
+  </header>
+
+<script src="/static/Scripts/customScroll/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    (function ($) {
+        "use strict";
+        $(".content").mCustomScrollbar({ theme: "dark" });
+    })(jQuery);
+</script>
+
+  <script>
+      $(function () {
+          "use strict";
+          if ($(window).width() <= 1000) {
+              $(".menu-first-level li.expand").on('click', function () {
+                  $(this).toggleClass('open-submenu');
+                  return false;
+              });
+              $(".menu-first-level li.exp-mega").on('click', function () {
+                  $(this).toggleClass('open-submenu');
+                  return false;
+              });
+          }
+
+          //Management open close cart
+
+          $(document).click(function () {
+              $("#dropdown").hide();
+          });
+
+          $(".box-shoppingCart").click(function (e) {
+              e.stopPropagation();
+              $("#dropdown").show();
+          });
+      });
+  </script>
+

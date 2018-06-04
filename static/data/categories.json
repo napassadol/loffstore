@@ -1,0 +1,111 @@
+﻿[
+  {
+    "id": "1",
+    "name": "Monitor",
+    "total": "totalArt",
+    "top_category": "0",
+    "new_category": "0",
+    "other_category": "0"
+  },
+  {
+    "id": "2",
+    "name": "Tv-Lcd",
+    "total": "totalBiography",
+    "top_category": "1",
+    "new_category": "0",
+    "other_category": "0"
+  },
+  {
+    "id": "3",
+    "name": "Printer",
+    "total": "totalBusiness",
+    "top_category": "0",
+    "new_category": "0",
+    "other_category": "0"
+  },
+  {
+    "id": "4",
+    "name": "Computer",
+    "total": "totalComputing",
+    "top_category": "1",
+    "new_category": "0",
+    "other_category": "0"
+  },
+  {
+    "id": "5",
+    "name": "Notebook",
+    "top_category": "0",
+    "new_category": "0",
+    "other_category": "1"
+  },
+  {
+    "id": "6",
+    "name": "Smartphone",
+    "top_category": "1",
+    "new_category": "0",
+    "other_category": "0"
+  },
+  {
+    "id": "7",
+    "name": "Accessories",
+    "top_category": "0",
+    "new_category": "1",
+    "other_category": "0"
+  },
+  {
+    "id": "8",
+    "name": "Graphic",
+    "top_category": "0",
+    "new_category": "0",
+    "other_category": "0"
+  },
+  {
+    "id": "9",
+    "name": "Video",
+    "top_category": "0",
+    "new_category": "1",
+    "other_category": "0"
+  },
+  {
+    "id": "10",
+    "name": "HeadPhone",
+    "top_category": "0",
+    "new_category": "1",
+    "other_category": "0"
+  },
+  {
+    "id": "11",
+    "name": "Hi-Fi",
+    "top_category": "0",
+    "new_category": "1",
+    "other_category": "0"
+  },
+  {
+    "id": "12",
+    "name": "Photography",
+    "top_category": "0",
+    "new_category": "0",
+    "other_category": "1"
+  },
+  {
+    "id": "13",
+    "name": "Ebook",
+    "top_category": "0",
+    "new_category": "0",
+    "other_category": "1"
+  },
+  {
+    "id": "14",
+    "name": "IPhone",
+    "top_category": "0",
+    "new_category": "0",
+    "other_category": "1"
+  },
+  {
+    "id": "15",
+    "name": "Software",
+    "top_category": "1",
+    "new_category": "0",
+    "other_category": "0"
+  }
+]
