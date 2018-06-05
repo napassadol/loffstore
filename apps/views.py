@@ -6,7 +6,3 @@ from rest_framework.views import APIView
 def HomeView(request):
     return render(request, 'index.html')
 
-class test(APIView):
-    def get(self, request):
-
-        return Response({'data': 'test'})

@@ -12,6 +12,7 @@
         'uiGmapgoogle-maps',
         'oc.lazyLoad',
         'restangular',
+        'oitozero.ngSweetAlert',
     ]);
 
 
@@ -23,19 +24,25 @@
             'events': true, // For Event 'true/false'
             'modules': [
                 {
-                    name : 'registerCtrl', // State1 module
-                    files: ['static/Scripts/controller/registerCtrl.js']
+                    name : 'registerCtrl',
+                    files: [
+                        'static/Scripts/controller/registerCtrl.js',
+                        'static/Scripts/service/registerApi.js'
+                    ]
                 },
                 {
-                    name : 'homeCtrl', // State1 module
+                    name : 'homeCtrl',
                     files: [
                         'static/Scripts/controller/homeCtrl.js',
                         'static/Scripts/service/homeApi.js'
                     ]
                 },
                 {
-                    name : 'loginCtrl', // State1 module
-                    files: ['static/Scripts/controller/loginCtrl.js']
+                    name : 'loginCtrl',
+                    files: [
+                        'static/Scripts/controller/loginCtrl.js',
+                        'static/Scripts/service/loginApi.js'
+                    ]
                 }
             ]
         });
@@ -50,21 +57,6 @@
                 }]
             }
         })
-        // .when("/home2", {
-        //     templateUrl: "static/partials/home2.html"
-        // })
-        .when("/home3", {
-            templateUrl: "static/partials/home3.html"
-        })
-        .when("/home4", {
-            templateUrl: "static/partials/home4.html"
-        })
-        .when("/home5", {
-            templateUrl: "static/partials/home5.html"
-        })
-        .when("/home6", {
-            templateUrl: "static/partials/home6.html"
-        })
         .when("/about", {
             templateUrl: "static/partials/about.html"
         })
@@ -72,7 +64,12 @@
             templateUrl: "static/partials/services.html"
         })
         .when("/register", {
-            templateUrl: "static/partials/register.html"
+            templateUrl: "static/partials/register.html",
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load('registerCtrl'); // Resolve promise and load before view 
+                }]
+            }
         })
         .when("/login", {
             templateUrl: "static/partials/login.html"

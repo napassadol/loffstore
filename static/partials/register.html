@@ -1,4 +1,4 @@
-﻿
+﻿<div ng-controller="registerCtrl as ctrl">
 <section class="content-header">
     <div class="container">
         <div class="row">
@@ -34,55 +34,48 @@
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span> 
-                                <input type="text" class="form-control" placeholder="Username" required />
+                                <input type="text" class="form-control" placeholder="Username" ng-model="ctrl.register.username" required />
                             </div>
                             
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-lock"></i>
                                 </span> 
-                                <input type="password" class="form-control" name="password" placeholder="Password" required />
+                                <input type="password" class="form-control" name="password" placeholder="Password" ng-model="ctrl.register.password" required />
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-send"></i>
                                 </span> 
-                                <input type="email" class="form-control" name="email" placeholder="Email" required />
+                                <input type="email" class="form-control" name="email" placeholder="Email" ng-model="ctrl.register.email" required />
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span> 
-                                <input type="text" class="form-control" name="First Name" placeholder="First Name" required />
+                                <input type="text" class="form-control" name="First Name" placeholder="First Name" ng-model="ctrl.register.first_name" required />
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span> 
-                                <input type="text" class="form-control" name="Last Name" placeholder="Last Name" required />
+                                <input type="text" class="form-control" name="Last Name" placeholder="Last Name" ng-model="ctrl.register.last_name" required />
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-ok"></i>
+                                    <i class="glyphicon glyphicon-earphone"></i>
                                 </span> 
-                                <input type="text" class="form-control" name="Gender" placeholder="Gender" required />
-                            </div>
-
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-globe"></i>
-                                </span> 
-                                <input type="text" class="form-control" name="Address" placeholder="Address" required />
+                                <input type="tel" class="form-control" name="phon_number" placeholder="Phone Number" ng-model="ctrl.register.phone" required />
                             </div>
 
                             <div style="margin-top: 20px" class="form-group">
                                 <!-- Button -->
                                 <div class="col-sm-12 controls">
-                                    <button type="submit" class="btn btn-success login-btn" value="Register">Register</button>
+                                    <button type="submit" class="btn btn-success login-btn" value="Register" ng-click="ctrl.submit()">Register</button>
                                 </div><br /><br />
                             </div>
                             
@@ -94,7 +87,7 @@
         </div>
     </div>
 </section>
-
+</div>
 
 <script>
     $(function () {

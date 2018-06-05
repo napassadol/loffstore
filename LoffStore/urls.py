@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from apps import views as apps_views
+from register import views as register_views
 
 urlpatterns = [
+    
     url(r'^$', apps_views.HomeView),
-    url(r'^test/?$', apps_views.test.as_view(), name = 'test'),
+    url(r'^save_data_register/?$', register_views.save_data_register.as_view(), name = 'test'),
 ]
