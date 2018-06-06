@@ -1,6 +1,6 @@
-angular.module('app').service('loginApi', function(Restangular) {
+app.service('loginApi', function(Restangular) {
 
-    this.test = function(){
-        return Restangular.one('test/').get()
+    this.login = function(data){
+        return Restangular.all('auth_login/').post(data)
     }
 })

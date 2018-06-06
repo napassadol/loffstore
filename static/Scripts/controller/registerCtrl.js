@@ -69,9 +69,22 @@ function($scope, registerApi, SweetAlert){
 	vm.submit = function(){
 		var valid = validataData()
 		var data = vm.register
-
+		
 		if(valid.status == true){
-			registerApi.saveDataRegister(data)
+			registerApi.saveDataRegister(data).then(
+				function successCallBack(response){
+					response = response.plain()
+					if(response.status == "Failed"){
+						SweetAlert.swal({
+							title : response.message,
+							confirmButtonColor : '#007AFF'
+						});
+					}
+					else{
+						window.location.href = "/#/login"
+					}
+				}
+			)
 		}
 		else{
 			SweetAlert.swal({

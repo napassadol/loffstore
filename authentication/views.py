@@ -11,11 +11,16 @@ class login(APIView):
         return_data = dict()
         data = request.data
         hash_pass = hashlib.sha256(data['password'].encode()).hexdigest()
-        result = User.objects.filter(username = data['username'], password = hash_pass)
-        if result != None:
+        result = User.objects.all().filter(username = data['username'], password = hash_pass).values()
+
+        if len(result) == 0:
+            result = User.objects.all().filter(email = data['username'], password = hash_pass).values()
+            
+        if len(result) > 0:
             return_data['status'] = 'Success'
-            return return_data
+            return_data['data'] = result[0]
+            return Response(return_data)
         else:
             return_data['status'] = 'Failure'
-            return return_data
+            return Response(return_data)
 
