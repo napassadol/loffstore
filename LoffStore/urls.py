@@ -18,9 +18,11 @@ from django.urls import path
 from django.conf.urls import url
 from apps import views as apps_views
 from register import views as register_views
+from authentication import views as auth_views
 
 urlpatterns = [
     
     url(r'^$', apps_views.HomeView),
-    url(r'^save_data_register/?$', register_views.save_data_register.as_view(), name = 'test'),
+    url(r'^save_data_register/?$', register_views.save_data_register.as_view(), name = 'register'),
+    url(r'^auth_login/?$', auth_views.login.as_view(), name = 'login'),
 ]
