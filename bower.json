@@ -1,0 +1,38 @@
+{
+  "name": "loffstore",
+  "homepage": "https://github.com/napassadol/loffstore",
+  "authors": [
+    "Napassadol"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "^1.7.0",
+    "angular-bootstrap": "^2.5.0",
+    "angular-aria": "^1.7.0",
+    "angular-cookies": "1.5.3",
+    "angular-material": "^1.1.9",
+    "angular-route": "^1.7.0",
+    "angular-simple-logger": "^0.1.7",
+    "angular": "^1.7.0",
+    "angularjs-slider": "^6.5.1",
+    "bootstrap": "3.2.0",
+    "jquery": "^3.3.1",
+    "modernizr": "2.5.3",
+    "oclazyload": "^1.1.0",
+    "restangular": "^1.6.1",
+    "owl.carousel": "^2.3.4",
+    "lodash": "^4.17.10",
+    "less": "^3.0.0"
+  }
+}

@@ -1,2 +1,5 @@
 .vscode
 *.pyc
+
+# front end dependencies
+static/components/
