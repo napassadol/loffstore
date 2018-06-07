@@ -13,11 +13,12 @@
         'oc.lazyLoad',
         'restangular',
         'oitozero.ngSweetAlert',
+        'ui.router',
     ]);
 
 
-    app.config(['$routeProvider', '$ocLazyLoadProvider', 
-        function ($routeProvider, $ocLazyLoadProvider) {
+    app.config(['$routeProvider', '$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider',
+        function ($routeProvider, $ocLazyLoadProvider, $stateProvider, $urlRouterProvider) {
 
         $ocLazyLoadProvider.config({
             'debug': true, // For debugging 'true/false'
@@ -47,66 +48,76 @@
             ]
         });
 
-        $routeProvider
-        // Home
-        .when("/", {
-            templateUrl: "static/partials/home2.html",
-            resolve: {
-                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load('homeCtrl'); // Resolve promise and load before view 
-                }]
-            }
-        })
-        .when("/about", {
-            templateUrl: "static/partials/about.html"
-        })
-        .when("/services", {
-            templateUrl: "static/partials/services.html"
-        })
-        .when("/register", {
-            templateUrl: "static/partials/register.html",
-            resolve: {
-                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load('registerCtrl'); // Resolve promise and load before view 
-                }]
-            }
-        })
-        .when("/login", {
-            templateUrl: "static/partials/login.html"
-        })
-        .when("/products", {
-            templateUrl: "static/partials/products.html"
-        })
-        .when("/products_right_column", {
-            templateUrl: "static/partials/products_right_column.html"
-        })
-        .when("/list_products", {
-            templateUrl: "static/partials/list_products.html"
-        })
-        .when('/products/:productId', {
-            templateUrl: 'partials/product_details.html', controller: "detailsCtrl"
-        })
-        .when('/products_category/:categoryId', {
-            templateUrl: 'partials/products_category.html'
-        })
-        .when("/blog_v1", {
-            templateUrl: "static/partials/blog_v1.html"
-        })
-        .when("/blog_v1_right_column", {
-            templateUrl: "static/partials/blog_v1_right_column.html"
-        })
-        .when("/blog_v2", {
-            templateUrl: "static/partials/blog_v2.html"
-        })
-        .when("/orders", {
-            templateUrl: "static/partials/orders.html"
-        })
-        .when("/contact", {
-            templateUrl: "static/partials/contact.html"
-        })
-        .when("/404", { templateUrl: "static/partials/404.html" })
-        // else 404
-        .otherwise("/404", { templateUrl: "static/partials/404.html"});
+        $stateProvider
+            .state('stateName', {
+                url: '/',
+                templateUrl: "static/partials/home2.html",
+                resolve: {
+                    loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                        return $ocLazyLoad.load('homeCtrl'); // Resolve promise and load before view 
+                    }]
+                }
+            });
+        // $routeProvider
+        // // Home
+        // .when("/", {
+        //     templateUrl: "static/partials/home2.html",
+        //     resolve: {
+        //         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+        //             return $ocLazyLoad.load('homeCtrl'); // Resolve promise and load before view 
+        //         }]
+        //     }
+        // })
+        // .when("/about", {
+        //     templateUrl: "static/partials/about.html"
+        // })
+        // .when("/services", {
+        //     templateUrl: "static/partials/services.html"
+        // })
+        // .when("/register", {
+        //     templateUrl: "static/partials/register.html",
+        //     resolve: {
+        //         loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+        //             return $ocLazyLoad.load('registerCtrl'); // Resolve promise and load before view 
+        //         }]
+        //     }
+        // })
+        // .when("/login", {
+        //     templateUrl: "static/partials/login.html"
+        // })
+        // .when("/products", {
+        //     templateUrl: "static/partials/products.html"
+        // })
+        // .when("/products_right_column", {
+        //     templateUrl: "static/partials/products_right_column.html"
+        // })
+        // .when("/list_products", {
+        //     templateUrl: "static/partials/list_products.html"
+        // })
+        // .when('/products/:productId', {
+        //     templateUrl: 'partials/product_details.html', controller: "detailsCtrl"
+        // })
+        // .when('/products_category/:categoryId', {
+        //     templateUrl: 'partials/products_category.html'
+        // })
+        // .when("/blog_v1", {
+        //     templateUrl: "static/partials/blog_v1.html"
+        // })
+        // .when("/blog_v1_right_column", {
+        //     templateUrl: "static/partials/blog_v1_right_column.html"
+        // })
+        // .when("/blog_v2", {
+        //     templateUrl: "static/partials/blog_v2.html"
+        // })
+        // .when("/orders", {
+        //     templateUrl: "static/partials/orders.html"
+        // })
+        // .when("/contact", {
+        //     templateUrl: "static/partials/contact.html"
+        // })
+        // .when("/404", { templateUrl: "static/partials/404.html" })
+        // // else 404
+        // .otherwise("/404", { templateUrl: "static/partials/404.html"});
     }]);
 
 
