@@ -8,7 +8,17 @@ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider',
                 url: '/home',
                 templateUrl: "static/partials/home2.html",
                 resolve: loadSequence('homeCtrl')
-            });
+            })
+            .state('register', {
+                url: '/register',
+                templateUrl: "static/partials/register.html",
+                resolve: loadSequence('registerCtrl')
+            })
+            .state('login', {
+                url: '/login',
+                templateUrl: "static/partials/login.html",
+                resolve: loadSequence('loginCtrl')
+            })
         
         
         function loadSequence(ctrl){

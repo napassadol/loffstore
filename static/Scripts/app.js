@@ -13,6 +13,7 @@
         'restangular',
         'oitozero.ngSweetAlert',
         'ui.router',
+        'ngStorage'
     ]);
 
     app.factory("services", ['$http', '$window', function ($http, $window) {

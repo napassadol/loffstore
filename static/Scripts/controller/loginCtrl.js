@@ -1,6 +1,6 @@
 'use strict';
-angular.module('app').controller('loginCtrl', [ '$rootScope', '$scope', 'loginApi', 'SweetAlert', 
-	function($rootScope, $scope, loginApi, SweetAlert){
+angular.module('app').controller('loginCtrl', [ '$rootScope', '$scope', 'loginApi', 'SweetAlert', '$cookieStore',
+	function($rootScope, $scope, loginApi, SweetAlert, cookies){
 		var vm = this
 
 		vm.submit = function(loginForm){
@@ -14,7 +14,7 @@ angular.module('app').controller('loginCtrl', [ '$rootScope', '$scope', 'loginAp
 						response = response.plain()
 						if(response.status == 'Success'){
 							$rootScope.auth = 
-
+							cookies.put('auth', response)
 							window.location.href = "/"
 						}
 						else{
