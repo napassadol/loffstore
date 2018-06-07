@@ -79,7 +79,8 @@
 
             <div ng-include='"static/templates/header.html"'></div>
 
-            <div ng-view></div>
+            <!-- <div ng-view></div> -->
+            <div ui-view></div>
 
             <div ng-include='"static/templates/header-footer.html"'></div>
 
@@ -111,6 +112,7 @@
         <script src="static/Scripts/lib/angular.min.js"></script>
         <script src="static/Scripts/lib/angular-route.min.js"></script>
         <script src="static/Scripts/lib/angular-cookies.min.js"></script>
+        <script src="/static/components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 
         <script src="static/Scripts/lib/angular-animate.min.js"></script>
@@ -145,10 +147,11 @@
         <!-- ocLazyLoad -->
         <script src="/static/components/oclazyload/dist/ocLazyLoad.min.js"></script>
 
-
-        <script src="static/Scripts/app.js"></script>
-        <script src="static/Scripts/cart.js"></script>
-        <script src="static/Scripts/controller.js"></script>
+        <script src="/static/Scripts/app.js"></script>
+        <script src="/static/Scripts/config.router.js"></script>
+        <script src="/static/Scripts/config.constant.js"></script>
+        <script src="/static/Scripts/cart.js"></script>
+        <script src="/static/Scripts/controller.js"></script>
 
     
 </body>
