@@ -17,7 +17,7 @@ class login(APIView):
             result = User.objects.all().filter(email = data['username'], password = hash_pass).values()
             
         if len(result) > 0:
-            request.session['id'] = result[0]['id']
+            # request.session['user_id'] = result[0]['id']
             return_data['status'] = 'Success'
             return_data['data'] = result[0]
             return Response(return_data)
