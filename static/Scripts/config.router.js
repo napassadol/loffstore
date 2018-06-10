@@ -9,10 +9,15 @@ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider',
                 templateUrl: "static/partials/home2.html",
                 resolve: loadSequence('homeCtrl')
             })
-            .state('register', {
-                url: '/register',
+            .state('register/detail', {
+                url: '/register/detail',
                 templateUrl: "static/partials/register.html",
                 resolve: loadSequence('registerCtrl')
+            })
+            .state('register', {
+                url: '/register',
+                templateUrl: "static/partials/register_selection.html",
+                resolve: loadSequence('registerSelectCtrl')
             })
             .state('login', {
                 url: '/login',

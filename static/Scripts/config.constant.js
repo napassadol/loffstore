@@ -12,6 +12,13 @@ app.config(['$ocLazyLoadProvider',
                     ]
                 },
                 {
+                    name : 'registerSelectCtrl',
+                    files: [
+                        'static/Scripts/controller/registerSelectCtrl.js',
+                        'static/Scripts/service/registerApi.js'
+                    ]
+                },
+                {
                     name : 'homeCtrl',
                     files: [
                         'static/Scripts/controller/homeCtrl.js',

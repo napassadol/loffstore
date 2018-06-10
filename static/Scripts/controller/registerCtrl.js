@@ -1,11 +1,24 @@
 'use strict';
-angular.module('app').controller('registerCtrl', [ '$scope', 'registerApi', 'SweetAlert', 
-function($scope, registerApi, SweetAlert){
+angular.module('app').controller('registerCtrl', [ '$rootScope', '$scope', 'registerApi', 'SweetAlert', 
+function( $rootScope, $scope, registerApi, SweetAlert){
 	console.log('registerCtrl');
 	var vm = this
 
 	var minimun_len_username = 8
 	var maximun_len_username = 10
+
+	if($rootScope.register_type != undefined){
+		if($rootScope.register_type == 'farmer'){
+			vm.farmer = true
+		}
+		else{
+			vm.farmer = false
+		}
+		$rootScope.register_type = undefined
+	}
+	else{
+		window.location.href = "/#/register"
+	}
 
 	function validataData(){
 		var data = vm.register
@@ -38,19 +51,28 @@ function($scope, registerApi, SweetAlert){
 				return_data.message = 'please enter email'
 				return return_data
 			}
-	
-			if(data.first_name == undefined){
-				return_data.status = false
-				return_data.message = 'please enter first name'
-				return return_data
+			
+			if(vm.farmer){
+				if(data.first_name == undefined){
+					return_data.status = false
+					return_data.message = 'please enter first name'
+					return return_data
+				}
+		
+				if(data.last_name == undefined){
+					return_data.status = false
+					return_data.message = 'please enter last name'
+					return return_data
+				}
 			}
-	
-			if(data.last_name == undefined){
-				return_data.status = false
-				return_data.message = 'please enter last name'
-				return return_data
+			else{
+				if(data.factory_name == undefined){
+					return_data.status = false
+					return_data.message = 'please enter factory name'
+					return return_data
+				}
 			}
-	
+
 			if(data.phone == undefined){
 				return_data.status = false
 				return_data.message = 'please enter phone number'
@@ -93,4 +115,5 @@ function($scope, registerApi, SweetAlert){
 			});
 		}
 	}
+
 }]);

@@ -1,19 +1,4 @@
 ﻿<div ng-controller="registerCtrl as ctrl">
-<section class="content-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="slider-promotion register-box-text">
-                    <h1 class="register-top-title tlt">New Account</h1>
-                    <h1 class="register-top-title register-top-second tlt2">+ 1 watch free</h1>
-                </div>
-                <div class="fadeInRight animated abc-book">
-                    <img src="static/images/slide-book1.png" alt="" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="container">
     <div class="row">
         <div class="col-lg-12 table-padding">
@@ -51,18 +36,25 @@
                                 <input type="email" class="form-control" name="email" placeholder="Email" ng-model="ctrl.register.email" required />
                             </div>
 
-                            <div class="input-group">
+                            <div ng-if="ctrl.farmer" class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span> 
                                 <input type="text" class="form-control" name="First Name" placeholder="First Name" ng-model="ctrl.register.first_name" required />
                             </div>
 
-                            <div class="input-group">
+                            <div ng-if="ctrl.farmer" class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span> 
                                 <input type="text" class="form-control" name="Last Name" placeholder="Last Name" ng-model="ctrl.register.last_name" required />
+                            </div>
+
+                            <div ng-if="!ctrl.farmer" class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span> 
+                                <input type="text" class="form-control" name="Factory Name" placeholder="Factory Name" ng-model="ctrl.register.factory_name" required />
                             </div>
 
                             <div class="input-group">

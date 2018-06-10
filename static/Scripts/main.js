@@ -8,9 +8,11 @@ function ($rootScope, $state, $stateParams, $localStorage, $timeout, $http, $coo
 
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
-            if($cookies.get('auth').status == undefined && toState.name != 'login' && toState.name != 'register'){
-                event.preventDefault()
-                $state.go('login')
+            if($cookies.get('auth').status == undefined && toState.name != 'login'){
+                if(toState.name != 'register' && toState.name != 'register/detail'){
+                    event.preventDefault()
+                    $state.go('login')
+                }
             }
         })
 

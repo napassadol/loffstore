@@ -10,6 +10,7 @@ from register.models import User
 class save_data_register(APIView):
     def post(self, request):
         data = request.data
+        user_type = ''
         return_data = dict()
 
         return_data['status'] = 'Success'
@@ -29,16 +30,33 @@ class save_data_register(APIView):
             return_data['status'] = 'Failure'
             return_data['message'] = 'phone already exists'
 
+        if 'factory_name' in data:
+            user_type = 'factory'
+        else:
+            user_type = 'farmer'
+
         if return_data['status'] == 'Success':
-            register = User(
-                username = data['username'],
-                password = hashlib.sha256(data['password'].encode()).hexdigest(),
-                firstname = data['first_name'],
-                lastname = data['last_name'],
-                email = data['email'],
-                phone = data['phone'],
-                verify = False
-            )
+            if user_type == 'farmer':
+                register = User(
+                    username = data['username'],
+                    password = hashlib.sha256(data['password'].encode()).hexdigest(),
+                    firstname = data['first_name'],
+                    lastname = data['last_name'],
+                    email = data['email'],
+                    phone = data['phone'],
+                    user_type = user_type,
+                    verify = False
+                )
+            else:
+                register = User(
+                    username = data['username'],
+                    password = hashlib.sha256(data['password'].encode()).hexdigest(),
+                    factory_name = data['factory_name'],
+                    email = data['email'],
+                    phone = data['phone'],
+                    user_type = user_type,
+                    verify = False
+                )
             register.save()
             
         return Response(return_data)
