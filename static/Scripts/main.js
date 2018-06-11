@@ -45,6 +45,8 @@ function($rootScope, $scope, cookies, $state){
     vm = this
     vm.login = true
     vm.footer_show = false
+    vm.farmer = true
+    vm.factory = false
     vm.checkCookies = function(){
         data = cookies.get('auth')
         if(data != undefined){
@@ -67,5 +69,18 @@ function($rootScope, $scope, cookies, $state){
         cookies.put('auth', {})
         vm.checkCookies()
         window.location.href = '/#/login'
+    }
+
+    vm.check_user_type = function(){
+        vm.data = cookies.get('auth')
+        if(vm.data.user_type == 'farmer'){
+            vm.farmer = true
+            vm.factory = false
+        }
+        else if(vm.data.user_type == 'factory'){
+            vm.farmer = false
+            vm.factory = true
+        }
+        console.log(vm.data);
     }
 }])

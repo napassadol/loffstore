@@ -81,7 +81,7 @@
                     </div>
                 </section>
 
-                <div ng-include='"static/templates/header.html"'></div>
+                <div ng-if="ctrl.login" ng-include='"static/templates/header.html"'></div>
 
                 <!-- <div ng-view></div> -->
                 <div ui-view></div>

@@ -8,7 +8,19 @@
                   <!-- <span><img src="/static/images/Loffstore1 (colour).gif"></img></span> -->
                   <!-- <h2><span><img src="/static/images/Loffstore1 (colour).gif"></img></span></h2> -->
               </div>
-              <div class="col-md-8 mainmenu">
+              <div class="col-md-4 mainmenu">
+                <div class="row blog-v1" ng-controller="cookiesCtrl as ctrl" ng-init="ctrl.check_user_type()">
+                    <div class="blog-item ">
+                        <div class="blog-desc">
+                            <div class="mainbox blog-info-desc">
+                                <button ng-if="ctrl.farmer" class="btn btn-primary btn-blog" onclick="window.location.href='/#/login'">Sell</button>
+                                <button ng-if="ctrl.factory" class="btn btn-primary btn-blog" onclick="window.location.href='/#/login'">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-4 mainmenu">
                   <div class="collapse navbar-collapse" id="navbar-collapse-1" >
                       <ul class="menu-first-level">
                           <li class="expand">
@@ -36,22 +48,10 @@
                               </div>
                           </li>-->
                           <li class="expand">
-                              <a href="">Pages</a>
+                              <a href="">Menu</a>
                               <!-- DropDown Menu -->
                               <ul class="restrain sub-menu">
-                                  <li><a href="#/about">About</a></li>
-                                  <li><a href="#/services">Services</a></li>
-                                  <li><a href="#/login">Login</a></li>
-                                  <li><a href="#/register">Register</a></li>
                                   <li><a href="#/products">Products</a></li>
-                                  <li><a href="#/products_right_column">Products Right Col.</a></li>
-                                  <li><a href="#/list_products">List Products</a></li>
-                                  <li><a href="#/blog_v1">Blog v1</a></li>
-                                  <li><a href="#/blog_v1_right_column">Blog v1 Right Col.</a></li>
-                                  <li><a href="#/blog_v2">Blog v2</a></li>
-                                  <li><a href="#/orders">Orders</a></li>
-                                  <li><a href="#/contact">Contact Us</a></li>
-                                  <li><a href="#/404">404 Error</a></li>
                               </ul>
                           </li>
                           <li><a href="#/contact">Contact</a></li>
