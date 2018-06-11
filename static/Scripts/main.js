@@ -8,12 +8,12 @@ function ($rootScope, $state, $stateParams, $localStorage, $timeout, $http, $coo
 
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
-            if($cookies.get('auth').status == undefined && toState.name != 'login'){
-                if(toState.name != 'register' && toState.name != 'register/detail'){
-                    event.preventDefault()
-                    $state.go('login')
-                }
-            }
+            // if($cookies.get('auth').status == undefined && toState.name != 'login'){
+            //     if(toState.name != 'register' && toState.name != 'register/detail'){
+            //         event.preventDefault()
+            //         $state.go('login')
+            //     }
+            // }
         })
 
 }])
@@ -44,18 +44,22 @@ app.controller('cookiesCtrl', [ '$rootScope', '$scope', '$cookieStore', '$state'
 function($rootScope, $scope, cookies, $state){
     vm = this
     vm.login = true
+    vm.footer_show = false
     vm.checkCookies = function(){
         data = cookies.get('auth')
         if(data != undefined){
             if(data.status != undefined){
                 vm.login = true
+                vm.footer_show = true
             }
             else{
                 vm.login = false
+                vm.footer_show = false
             }
         }
         else{
             vm.login = false
+            vm.footer_show = false
         }
     }
 

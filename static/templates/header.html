@@ -4,7 +4,7 @@
           <nav class="col-md-12 navigation-menu" role="navigation">
 
               <div class="col-md-3 content-logo ">
-                  <h2>Evo<span>Tech</span></h2>
+                  <h2>Loff<span>Store</span></h2>
                   <!-- <span><img src="/static/images/Loffstore1 (colour).gif"></img></span> -->
                   <!-- <h2><span><img src="/static/images/Loffstore1 (colour).gif"></img></span></h2> -->
               </div>
@@ -12,39 +12,9 @@
                   <div class="collapse navbar-collapse" id="navbar-collapse-1" >
                       <ul class="menu-first-level">
                           <li class="expand">
-                              <a href="#/">Home</a>
-                              <!-- DropDown Menu -->
-                              <ul class="restrain sub-menu">
-                                  <li><a href="#/">Home Version 1</a></li>
-                                  <li><a href="#/home2">Home Version 2</a></li>
-                                  <li><a href="#/home3">Home Version 3</a></li>
-                                  <li><a href="#/home4">Home Version 4</a></li>
-                                  <li><a href="#/home5">Home Version 5</a></li>
-                                  <li><a href="#/home6">Home Version 6</a></li>
-                              </ul>
+                              <a ui-sref="home">Home</a>
                           </li>
-                          <li><a href="#/about">About Us</a></li>
-                          <li class="exp-mega">
-                              <a href="">Categories</a>
-                              <!-- Mega Menu Four Column -->
-                              <div class="mega-menu">
-                                  <span>
-                                      <a class="mega-title" href="">Top Categories</a>
-                                      <a href="#/products_category/{{data.id}}" ng-repeat="data in topCategories">{{data.name}}</a>
-                                  </span>
-                                  <span>
-                                      <a class="mega-title" href="">New Categories</a>
-                                      <a href="#/products_category/{{data.id}}" ng-repeat="data in newCategories">{{data.name}}</a>
-                                  </span>
-                                  <span>
-                                      <a class="mega-title" href="">Other Categories</a>
-                                      <a href="#/products_category/{{data.id}}" ng-repeat="data in otherCategories">{{data.name}}</a>
-                                  </span>
-                                  <span class="mega-menu-img">
-                                      <a href="#"><img src="static/images/open-book.png" alt=""></a>
-                                  </span>
-                              </div>
-                          </li>
+                          <!-- <li><a href="#/about">About Us</a></li> -->
                           <!--<li>
                               <a>Livingroom</a>
                               

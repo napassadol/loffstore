@@ -5,7 +5,7 @@ from django.contrib.postgres.fields import JSONField
 class User(models.Model):
     user_img = models.ImageField(upload_to = 'user/', default = 'none/noimage.jpg')
     username = models.CharField(max_length=20)
-    password = models.CharField(max_length=20)
+    password = models.CharField(max_length=256)
     firstname = models.CharField(max_length=20, default='')
     lastname = models.CharField(max_length=20, default='')
     factory_name = models.CharField(max_length=20, default='')
