@@ -3,3 +3,5 @@
 
 # front end dependencies
 static/components/
+.ebextensions/django.config
+.elasticbeanstalk/config.yml
