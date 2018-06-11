@@ -13,7 +13,6 @@ angular.module('app').controller('loginCtrl', [ '$rootScope', '$scope', 'loginAp
 					function successCallBack(response){
 						response = response.plain()
 						if(response.status == 'Success'){
-							$rootScope.auth = 
 							cookies.put('auth', response)
 							window.location.href = "/"
 						}
