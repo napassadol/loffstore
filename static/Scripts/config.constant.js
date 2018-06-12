@@ -7,29 +7,36 @@ app.config(['$ocLazyLoadProvider',
                 {
                     name : 'registerCtrl',
                     files: [
-                        'static/Scripts/controller/registerCtrl.js',
-                        'static/Scripts/service/registerApi.js'
+                        '/static/Scripts/controller/register/registerCtrl.js',
+                        '/static/Scripts/service/register/registerApi.js'
                     ]
                 },
                 {
                     name : 'registerSelectCtrl',
                     files: [
-                        'static/Scripts/controller/registerSelectCtrl.js',
-                        'static/Scripts/service/registerApi.js'
+                        '/static/Scripts/controller/register/registerSelectCtrl.js',
+                        '/static/Scripts/service/register/registerApi.js'
                     ]
                 },
                 {
                     name : 'homeCtrl',
                     files: [
-                        'static/Scripts/controller/homeCtrl.js',
-                        'static/Scripts/service/homeApi.js'
+                        'static/Scripts/controller/home/homeCtrl.js',
+                        'static/Scripts/service/home/homeApi.js'
                     ]
                 },
                 {
                     name : 'loginCtrl',
                     files: [
-                        'static/Scripts/controller/loginCtrl.js',
-                        'static/Scripts/service/loginApi.js'
+                        '/static/Scripts/controller/login/loginCtrl.js',
+                        '/static/Scripts/service/login/loginApi.js'
+                    ]
+                },
+                {
+                    name : 'registerDetailCtrl',
+                    files: [
+                        '/static/Scripts/controller/register/registerDetailCtrl.js',
+                        '/static/Scripts/service/register/registerDetailApi.js'
                     ]
                 }
             ]

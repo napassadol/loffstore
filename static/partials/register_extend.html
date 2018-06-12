@@ -1,0 +1,261 @@
+﻿<section class="container table-padding-double-up" ng-controller="registerDetailCtrl as ctrl">
+    <div class="row about-solution">
+        <div class="col-md-12 team-book">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form name="loginForm" ng-submit="" class="form-horizontal regietr-form" method="post" novalidate form-autofill-fix>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <p>รูปตัวเอง</p>
+                                <span>
+                                    <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                </span>
+                                <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        ชื่อ:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.firstname" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        นามสกุล:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.lastname" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        อายุ:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.age" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        เบอร์โทร:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.phone" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        พื้นที่เพาะปลูก:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.area" required />
+                                    <span class="input-group-addon">
+                                        ไร่
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        บ้านเลขที่:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.num" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        หมู่ที่:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.group" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        ซอย:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.soi" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        ถนน:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.road" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        ตำบล/แขวง:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.district" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        อำเภอ/เขต:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.province" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        จังหวัด:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.city" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        ประเทศ:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.country" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        รายได้ต่อปี:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.detil.income" required />
+                                    <span class="input-group-addon">
+                                        บาท
+                                    </span> 
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        เคยขายที่ไหนบ้าง:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.detil.experience" required />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        พืชที่สนใจปลูก:
+                                    </span> 
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.detil.interest" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <p>รูปไร่,สวน</p>
+                                    <span>
+                                        <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                    </span>
+                                    <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <p>รูปผลผลิต</p>
+                                    <span>
+                                        <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                    </span>
+                                    <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <p>รูปผลผลิต</p>
+                                    <span>
+                                        <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                    </span>
+                                    <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <p>รูปผลผลิต</p>
+                                    <span>
+                                        <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                    </span>
+                                    <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px" class="form-group">
+                        <!-- Button -->
+                        <div class="col-sm-12 controls">
+                            <button type="submit" class="btn btn-success login-btn" value="Register" ng-click="ctrl.submit()">Register</button>
+                        </div><br /><br />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+        "use strict";
+        setTimeout(function () {
+            $('.tlt').css("visibility", "visible");
+            $('.tlt').textillate({ in: { effect: 'bounceIn' } });
+        }, 2000);
+    });
+</script>
+
+<script>
+    $(document).ready(function ($) {
+    /*************************************************************
+    Percentage skillbar
+    *************************************************************/
+        $(function skillbar() {
+            "use strict";
+            try {
+                $('.skillbar').each(function () {
+                    $(this).find('.skillbar-bar').animate({
+                        width: $(this).attr('data-percent')
+                    }, 3000);
+                });
+            } catch (err) {
+            }
+        });
+
+    /*************************************************************
+    Small FlexSlider Slide
+    *************************************************************/
+        $(function flexImg() {
+            "use strict";
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: ""
+
+            });
+        });
+    });
+</script>
+
+ <!--Counter-->
+
+<script type="text/javascript">
+$(function () {
+    "use strict";
+    $('.counter').counterUp({
+        delay: 40,
+        time: 4000
+    });
+});
+</script>

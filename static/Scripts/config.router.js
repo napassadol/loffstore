@@ -24,10 +24,10 @@ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider',
                 templateUrl: "static/partials/login.html",
                 resolve: loadSequence('loginCtrl')
             })
-            .state('postproduct', {
-                url: '/postproduct',
-                templateUrl: "/static/partials/post_products.html",
-                resolve: loadSequence('registerCtrl')
+            .state('register/extend', {
+                url: '/register/extend',
+                templateUrl: "/static/partials/register_extend.html",
+                resolve: loadSequence('registerDetailCtrl')
             })
         
         
