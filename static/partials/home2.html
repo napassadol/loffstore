@@ -7,27 +7,25 @@
             <h1 class="section-title">FEATURED <span>PRODUCTS</span></h1>
         </div>
         <div class="col-lg-12 content-store">
-                    <div class="list-product">
-                        <div class="col-md-2 my-shop-animation" ng-repeat="data in products | limitTo:12">
-                            <div class="top-discount-book" ng-show="data.discount.length">{{data.discount}}</div>
-                            <div class="box-prod group-book">
-                                <div class="box-img-book">
-                                    <img ng-src="static/images/books/{{data.image}}">
-                                </div>
-                                <h2 class="title-book">{{data.title}}</h2>
-
-                                <p class="author-txt">{{getCategory(data.categoryId)}}</p>
-
-                                <p class="book-price" > {{data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}<span ng-class="{'vis-hidden': data.first_price == 0.00}">{{data.first_price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></p>
-                                <div class="box-btn-shop">
-                                    <div class="bt-img"><a class="btn btn-det-cart" href="#/products/{{data.id}}"><i class="fa fa-list"></i></a></div>
-                                    <div class="bt-img bt-img-right"><button type="button" ng-click="addProduct(data, 1)" class="btn btn-add-cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></div>
-                                </div>
-                            </div>
+            <div class="list-product">
+                <div class="col-md-2 my-shop-animation" ng-repeat="data in products | limitTo:12">
+                    <div class="top-discount-book" ng-show="data.discount.length">{{data.discount}}</div>
+                    <div class="box-prod group-book">
+                        <div class="box-img-book">
+                            <img ng-src="static/images/books/{{data.image}}">
+                        </div>
+                        <h2 class="title-book">{{data.title}}</h2
+                        <p class="author-txt">{{getCategory(data.categoryId)}}</p
+                        <p class="book-price" > {{data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}<span ng-class="{'vis-hidden': data.first_price == 0.00}">{{data.first_price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></p>
+                        <div class="box-btn-shop">
+                            <div class="bt-img"><a class="btn btn-det-cart" href="#/products/{{data.id}}"><i class="fa fa-list"></i></a></div>
+                            <div class="bt-img bt-img-right"><button type="button" ng-click="addProduct(data, 1)" class="btn btn-add-cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></div>
                         </div>
                     </div>
-                    <a href="">more...</a>
-         </div>
+                </div>
+            </div>
+            <a href="">more...</a>
+        </div>
     </div>
 </section>
 

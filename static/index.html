@@ -81,14 +81,14 @@
                     </div>
                 </section>
 
-                <div ng-if="ctrl.login" ng-include='"static/templates/header.html"'></div>
+                <div ng-if="footer_show" ng-include='"static/templates/header.html"'></div>
 
                 <!-- <div ng-view></div> -->
                 <div ui-view></div>
 
                 <!-- <div ng-include='"static/templates/header-footer.html"'></div> -->
 
-                <div ng-if="ctrl.footer_show" ng-include='"static/templates/footer2.html"'></div>
+                <div ng-if="footer_show" ng-include='"static/templates/footer2.html"'></div>
             </div>
         </div>
        </div>

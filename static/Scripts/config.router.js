@@ -24,6 +24,11 @@ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider',
                 templateUrl: "static/partials/login.html",
                 resolve: loadSequence('loginCtrl')
             })
+            .state('postproduct', {
+                url: '/postproduct',
+                templateUrl: "/static/partials/post_products.html",
+                resolve: loadSequence('registerCtrl')
+            })
         
         
         function loadSequence(ctrl){

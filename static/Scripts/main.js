@@ -1,5 +1,6 @@
 app.run(['$rootScope', '$state', '$stateParams', '$localStorage', '$timeout', '$http', '$cookieStore',
 function ($rootScope, $state, $stateParams, $localStorage, $timeout, $http, $cookies) {
+    $rootScope.footer_show = true
 
     if (!($cookies.get('auth') instanceof Object)) {
         console.log('initial cookies');
@@ -8,12 +9,16 @@ function ($rootScope, $state, $stateParams, $localStorage, $timeout, $http, $coo
 
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
-            // if($cookies.get('auth').status == undefined && toState.name != 'login'){
-            //     if(toState.name != 'register' && toState.name != 'register/detail'){
-            //         event.preventDefault()
-            //         $state.go('login')
-            //     }
-            // }
+            if($cookies.get('auth').status == undefined && toState.name != 'login'){
+                $rootScope.footer_show = false
+                if(toState.name != 'register' && toState.name != 'register/detail'){
+                    // event.preventDefault()
+                    // $state.go('login')
+                }
+            }
+            else{
+                $rootScope.footer_show = true
+            }
         })
 
 }])
@@ -52,16 +57,13 @@ function($rootScope, $scope, cookies, $state){
         if(data != undefined){
             if(data.status != undefined){
                 vm.login = true
-                vm.footer_show = true
             }
             else{
                 vm.login = false
-                vm.footer_show = false
             }
         }
         else{
             vm.login = false
-            vm.footer_show = false
         }
     }
 
