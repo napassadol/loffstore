@@ -86,16 +86,16 @@ WSGI_APPLICATION = 'LoffStore.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'loffstore',
-        'USER': 'loffstore',
-        'PASSWORD': 'postgres',
-        'HOST': 'loffstore.ctfxmdqipb9u.ap-southeast-1.rds.amazonaws.com',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'loff_dev',
+#         'USER': 'loffstore',
+#         'PASSWORD': 'postgres',
+#         'HOST': 'loff-dev.ctfxmdqipb9u.ap-southeast-1.rds.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
