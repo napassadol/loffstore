@@ -9,17 +9,17 @@ function ($rootScope, $state, $stateParams, $localStorage, $timeout, $http, $coo
 
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
-            // if($cookies.get('auth').status == undefined && toState.name != 'login'){
-            //     if(toState.name != 'register' && toState.name != 'register/detail'){
-            //         event.preventDefault()
-            //         $state.go('login')
-            //     }
-            // }
-            // else if(toState.name == 'login'){
-            //     if($cookies.get('auth').status == 'Success'){
-            //         event.preventDefault()
-            //     }
-            // }
+            if($cookies.get('auth').status == undefined && toState.name != 'login'){
+                if(toState.name != 'register' && toState.name != 'register/detail'){
+                    event.preventDefault()
+                    $state.go('login')
+                }
+            }
+            else if(toState.name == 'login'){
+                if($cookies.get('auth').status == 'Success'){
+                    event.preventDefault()
+                }
+            }
         })
     
     $rootScope.$on('$stateChangeSuccess',

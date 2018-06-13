@@ -29,9 +29,14 @@ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider',
                 templateUrl: "/static/partials/register_extend.html",
                 resolve: loadSequence('registerDetailCtrl')
             })
-            .state('product/post', {
-                url: '/product/post',
-                templateUrl: "/static/partials/product_post.html",
+            .state('product/post/sell', {
+                url: '/product/post/sell',
+                templateUrl: "/static/partials/product_post_sell.html",
+                resolve: loadSequence('productPostCtrl')
+            })
+            .state('product/post/buy', {
+                url: '/product/post/buy',
+                templateUrl: "/static/partials/product_post_buy.html",
                 resolve: loadSequence('productPostCtrl')
             })
         

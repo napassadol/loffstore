@@ -94,34 +94,34 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                        ตำบล/แขวง:
+                                    <label for="input1" style="font-weight: normal;">ตำบล/แขวง *</label>
+                                    <span class="plain-select">
+                                            <select class="language-select" ng-model="ctrl.data.unit_area" ng-options="item as item.label for item in ctrl.select.unit_area"></select>
                                     </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.district" required />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                        อำเภอ/เขต:
-                                    </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.province" required />
+                                    <label for="input1" style="font-weight: normal;">อำเภอ/เขต *</label>
+                                    <span class="plain-select">
+                                            <select class="language-select" ng-model="ctrl.data.unit_area" ng-options="item as item.label for item in ctrl.select.unit_area"></select>
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                        จังหวัด:
-                                    </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.city" required />
+                                    <label for="input1" style="font-weight: normal;">จังหวัด *</label>
+                                    <span class="plain-select">
+                                            <select class="language-select" ng-model="ctrl.data.unit_area" ng-options="item as item.label for item in ctrl.select.unit_area"></select>
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                        ประเทศ:
-                                    </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.country" required />
+                                    <label for="input1" style="font-weight: normal;">ประเทศ *</label> 
+                                    <span class="plain-select">
+                                            <select class="language-select" ng-model="ctrl.data.unit_area" ng-options="item as item.label for item in ctrl.select.unit_area"></select>
+                                    </span>
                                 </div>
                             </div>
                         </div>

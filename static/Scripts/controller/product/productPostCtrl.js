@@ -3,6 +3,11 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productPostApi', 'S
         var vm = this
         vm.data = {}
         vm.select = {}
-        vm.select.unit_area = ['a', 'b']
+        vm.select.unit = ['ไร่', 'กิโลกรัม'];
+
+        vm.data.unit = vm.select.unit[0]
+        vm.submit = function(){
+
+        }
     }
 ])
