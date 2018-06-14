@@ -1,6 +1,10 @@
-angular.module('app').service('productPostApi', function(Restangular) {
+angular.module('app').service('productApi', function(Restangular) {
 
     this.saveDataRegister = function(data){
         return Restangular.all('save_data_register/').post(data)
+    }
+
+    this.postProductSell = function(data){
+        return Restangular.all('post_product_sell/').post(data)
     }
 })

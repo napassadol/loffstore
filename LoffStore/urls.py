@@ -25,6 +25,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     
     url(r'^$', apps_views.HomeView),
+    url(r'^post_product_sell/?$', apps_views.post_product_sell.as_view(), name = 'post_product_sell'),
     url(r'^save_data_register/?$', register_views.save_data_register.as_view(), name = 'register'),
     url(r'^auth_login/?$', auth_views.login.as_view(), name = 'login'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

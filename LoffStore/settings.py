@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps',
     'register',
     'rest_framework',
+    'product',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'tisco#123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
