@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'LoffStore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'loffstore',
         'USER': 'postgres',
-        'PASSWORD': 'tisco#123',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '5432',
     }

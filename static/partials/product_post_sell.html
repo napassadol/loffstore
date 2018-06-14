@@ -10,25 +10,25 @@
                         <div class="col-md-12">
                             <div class="col-md-3">
                                 <span>
-                                    <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                    <img ng-src="{{ctrl.data.image_0}}" alt="" width="200" height="200">
                                 </span>
                                 <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 0)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
                             </div>
                             <div class="col-md-3">
                                 <span>
-                                    <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                    <img ng-src="{{ctrl.data.image_1}}" alt="" width="200" height="200">
                                 </span>
                                 <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 1)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
                             </div>
                             <div class="col-md-3">
                                 <span>
-                                    <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                    <img ng-src="{{ctrl.data.image_2}}" alt="" width="200" height="200">
                                 </span>
                                 <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 2)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
                             </div>
                             <div class="col-md-3">
                                 <span>
-                                    <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                    <img ng-src="{{ctrl.data.image_3}}" alt="" width="200" height="200">
                                 </span>
                                 <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 3)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
                             </div>
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="col-md-12" style="margin-top: 3%">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         ราคา :
@@ -73,6 +73,30 @@
                                     <span class="input-group-addon">
                                         บาท / {{ctrl.data.unit}}
                                     </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <label for="input1" style="font-weight: normal;">จังหวัด <span style="color:red;">*</span></label>
+                                    <span class="plain-select">
+                                            <select class="language-select" ng-model="ctrl.data.city" ng-options="item as item.name for item in ctrl.city"></select>
+                                    </span>
+                                </div>
+                            </div>
+                             <div class="col-md-3" ng-if="ctrl.data.city != undefined">
+                                <div class="input-group">
+                                    <label for="input1" style="font-weight: normal;">อำเภอ/เขต <span style="color:red;">*</span></label>
+                                    <span class="plain-select">
+                                            <select class="language-select" ng-model="ctrl.data.district" ng-options="item as item.name for item in ctrl.district | filter : {'changwat_pid' : ctrl.data.city.pid}"></select>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3" ng-if="ctrl.data.district != undefined">
+                                <div class="input-group">
+                                    <label for="input1" style="font-weight: normal;">ตำบล/แขวง  <span style="color:red;">*</span></label>
+                                    <span class="plain-select">
+                                        <select class="language-select" ng-model="ctrl.data.sub_district" ng-options="item as item.name for item in ctrl.sub_district | filter : {'amphoe_pid' : ctrl.data.district.pid}""></select>
+                                    </span> 
                                 </div>
                             </div>
                         </div>

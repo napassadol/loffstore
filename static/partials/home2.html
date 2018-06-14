@@ -14,8 +14,8 @@
                         <div class="box-img-book">
                             <img ng-src="static/images/books/{{data.image}}">
                         </div>
-                        <h2 class="title-book">{{data.title}}</h2
-                        <p class="author-txt">{{getCategory(data.categoryId)}}</p
+                        <h2 class="title-book">{{data.title}}</h2>
+                        <p class="author-txt">{{getCategory(data.categoryId)}}</p>
                         <p class="book-price" > {{data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}<span ng-class="{'vis-hidden': data.first_price == 0.00}">{{data.first_price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></p>
                         <div class="box-btn-shop">
                             <div class="bt-img"><a class="btn btn-det-cart" href="#/products/{{data.id}}"><i class="fa fa-list"></i></a></div>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <a href="">more...</a>
+            <a href=""><h2>more...</h2></a>
         </div>
     </div>
 </section>
