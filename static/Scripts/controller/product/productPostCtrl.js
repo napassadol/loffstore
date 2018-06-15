@@ -1,5 +1,5 @@
-app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', 'SweetAlert', '$http', '$cookieStore',
-    function( $rootScope, $scope, productApi, SweetAlert, $http, $cookies){
+app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http', '$cookieStore',
+    function( $rootScope, $scope, productApi, $http, $cookies){
         var vm = this
         var images = []
 
@@ -16,15 +16,12 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', 'Sweet
         
         $http.get('/static/locate/changwats/json/th.json').success(function (data){
             vm.city = data.th.changwats
-            console.log(data.th.changwats);
         })
         $http.get('/static/locate/amphoes/json/th.json').success(function (data){
             vm.district = data.th.amphoes
-            console.log(data.th.amphoes);
         })
         $http.get('/static/locate/tambons/json/th.json').success(function (data){
             vm.sub_district = data.th.tambons
-            console.log(data.th.tambons);
         })
 
         vm.submit = function(appForm){
@@ -42,6 +39,25 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', 'Sweet
             productApi.postProductSell(post_param).then(
                 function(response){
                     console.log(response);
+                    if(response.status == 'Failed'){
+                        swal({
+                            title: "Failed",
+                            timer: 1200,
+                            showCancelButton: false,
+                            showConfirmButton: false
+            
+                        });
+                    }
+                    else{
+                        swal({
+                            title: "Post Success",
+                            timer: 1200,
+                            showCancelButton: false,
+                            showConfirmButton: false
+            
+                        });
+                        window.location.href = '/#/home'
+                    }
                 }
             )
         }

@@ -11,7 +11,6 @@
         'uiGmapgoogle-maps',
         'oc.lazyLoad',
         'restangular',
-        'oitozero.ngSweetAlert',
         'ui.router',
         'ngStorage',
         'ui.select',

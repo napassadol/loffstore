@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.postgres.fields import JSONField
-import datetime
+from django.utils import timezone
+from register.models import User
 
 # Create your models here.
 class Product(models.Model):
@@ -11,8 +12,8 @@ class Product(models.Model):
     product_img_3 = models.ImageField(upload_to = 'image/product/', default = 'image/none/noimage.jpg')
     area = models.IntegerField(default=0)
     unit = models.CharField(max_length=5, default='')
-    date = models.DateTimeField(default=datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S'))
-    user_id = models.IntegerField(default=0)
+    date = models.DateTimeField(default=timezone.now, editable=False, blank=True)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     location = JSONField(blank=True, default={})
     description = models.TextField(default='')
 
@@ -22,7 +23,7 @@ class Product(models.Model):
 class SampleImage(models.Model):
     index = models.IntegerField(default=0)
     image = models.ImageField(upload_to = 'image/sample/', default = 'image/none/noimage.jpg')
-    user_id = models.IntegerField(default=0)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.user_id)
+        return str(self.index)

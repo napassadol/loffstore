@@ -1,6 +1,6 @@
 'use strict';
-angular.module('app').controller('registerCtrl', [ '$rootScope', '$scope', 'registerApi', 'SweetAlert', 
-function( $rootScope, $scope, registerApi, SweetAlert){
+angular.module('app').controller('registerCtrl', [ '$rootScope', '$scope', 'registerApi', 
+function( $rootScope, $scope, registerApi){
 	console.log('registerCtrl');
 	var vm = this
 

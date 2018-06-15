@@ -1,6 +1,6 @@
 'use strict';
-angular.module('app').controller('loginCtrl', [ '$rootScope', '$scope', 'loginApi', 'SweetAlert', '$cookieStore',
-	function($rootScope, $scope, loginApi, SweetAlert, cookies){
+angular.module('app').controller('loginCtrl', [ '$rootScope', '$scope', 'loginApi', '$cookieStore',
+	function($rootScope, $scope, loginApi, cookies){
 		var vm = this
 
 		vm.submit = function(loginForm){

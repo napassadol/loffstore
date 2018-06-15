@@ -4,5 +4,6 @@ media/
 
 # front end dependencies
 static/components/
+static/node_modules/
 .ebextensions/django.config
 .elasticbeanstalk/config.yml

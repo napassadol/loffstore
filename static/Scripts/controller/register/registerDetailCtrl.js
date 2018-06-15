@@ -1,5 +1,5 @@
-app.controller('registerDetailCtrl', [ '$rootScope', '$scope', 'registerDetailApi', 'SweetAlert', 
-    function( $rootScope, $scope, registerDetailApi, SweetAlert){
+app.controller('registerDetailCtrl', [ '$rootScope', '$scope', 'registerDetailApi', 
+    function( $rootScope, $scope, registerDetailApi){
         var vm = this
         vm.register = {}
     }

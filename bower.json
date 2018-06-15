@@ -31,7 +31,6 @@
     "lodash": "~4.17.0",
     "modernizr": "2.5.3",
     "ngstorage": "^0.3.11",
-    "ngSweetAlert": "https://github.com/theviralab/ngSweetAlert.git#c0b746e",
     "oclazyload": "^1.1.0",
     "owl.carousel": "^2.3.4",
     "restangular": "^1.6.1",
