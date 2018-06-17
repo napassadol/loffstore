@@ -13,6 +13,25 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http
         vm.data.image_1 = '/media/image/none/noimage.jpg'
         vm.data.image_2 = '/media/image/none/noimage.jpg'
         vm.data.image_3 = '/media/image/none/noimage.jpg'
+
+        if($cookies.get('auth').data.verify == false){
+            swal({
+                title: 'Warinig',
+                text: "Require more information before post",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Fill more infoemation'
+              }).then((result) => {
+                if (result.value) {
+                    window.location.href = '/#/register/extend'
+                }
+                else{
+                    window.location.href = '/#/home'
+                }
+              })
+        }
         
         $http.get('/static/locate/changwats/json/th.json').success(function (data){
             vm.city = data.th.changwats
@@ -29,6 +48,7 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http
                 'name' : vm.data.product_name,
                 'area' : vm.data.amount,
                 'unit' : vm.data.unit,
+                'price' : vm.data.price,
                 'user_id' : $cookies.get('auth').data.id,
                 'location' : {
                     'city' : vm.data.city,

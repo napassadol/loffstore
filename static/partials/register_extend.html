@@ -6,11 +6,11 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="text-center">
-                                <p>รูปตัวเอง</p>
+                                <p>รูปตัวเอง <span style="color:red;">*</span> </p>
                                 <span>
-                                    <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                    <img ng-src="media/{{ctrl.register.user_img}}" alt="" width="200" height="200">
                                 </span>
-                                <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 4)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -33,7 +33,7 @@
                             <div class="col-md-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        อายุ:
+                                        อายุ: <span style="color:red;">*</span>
                                     </span> 
                                     <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.age" required />
                                 </div>
@@ -49,7 +49,7 @@
                             <div class="col-md-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        พื้นที่เพาะปลูก:
+                                        พื้นที่เพาะปลูก: <span style="color:red;">*</span>
                                     </span> 
                                     <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.area" required />
                                     <span class="input-group-addon">
@@ -60,70 +60,38 @@
                         </div>
                         <div class="col-md-4"></div>
                         <div class="col-md-8">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        บ้านเลขที่:
+                                        ทีอยู่: <span style="color:red;">*</span>
                                     </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.num" required />
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.detail" required />
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4" style="margin-top: 2%">
                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                        หมู่ที่:
-                                    </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.group" required />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        ซอย:
-                                    </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.soi" required />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        ถนน:
-                                    </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.address.road" required />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <label for="input1" style="font-weight: normal;">ตำบล/แขวง *</label>
+                                    <label for="input1" style="font-weight: normal;">จังหวัด <span style="color:red;">*</span></label>
                                     <span class="plain-select">
-                                            <select class="language-select" ng-model="ctrl.register.sub_district" ng-options="item as item.label for item in ctrl.select.unit_area"></select>
-                                    </span> 
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <label for="input1" style="font-weight: normal;">อำเภอ/เขต *</label>
-                                    <span class="plain-select">
-                                            <select class="language-select" ng-model="ctrl.register.district" ng-options="item as item.label for item in ctrl.select.unit_area"></select>
+                                            <select class="language-select" ng-model="ctrl.register.address.city" ng-options="item as item.name for item in ctrl.city"></select>
                                     </span>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                             <div class="col-md-4" ng-if="ctrl.register.address.city != undefined" style="margin-top: 2%">
                                 <div class="input-group">
-                                    <label for="input1" style="font-weight: normal;">จังหวัด *</label>
+                                    <label for="input1" style="font-weight: normal;">อำเภอ/เขต <span style="color:red;">*</span></label>
                                     <span class="plain-select">
-                                            <select class="language-select" ng-model="ctrl.register.city" ng-options="item as item.label for item in ctrl.select.unit_area"></select>
+                                            <select class="language-select" ng-model="ctrl.register.address.district" ng-options="item as item.name for item in ctrl.district | filter : {'changwat_pid' : ctrl.data.city.pid}"></select>
                                     </span>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-4">
+                            <div class="col-md-4" ng-if="ctrl.register.address.district != undefined" style="margin-top: 2%">
                                 <div class="input-group">
-                                    <label for="input1" style="font-weight: normal;">ประเทศ *</label> 
+                                    <label for="input1" style="font-weight: normal;">ตำบล/แขวง  <span style="color:red;">*</span></label>
                                     <span class="plain-select">
-                                            <select class="language-select" ng-model="ctrl.register.country" ng-options="item as item.label for item in ctrl.select.unit_area"></select>
-                                    </span>
+                                        <select class="language-select" ng-model="ctrl.register.address.sub_district" ng-options="item as item.name for item in ctrl.sub_district | filter : {'amphoe_pid' : ctrl.data.district.pid}"></select>
+                                    </span> 
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="col-md-4">
                         </div>
@@ -133,7 +101,7 @@
                                     <span class="input-group-addon">
                                         รายได้ต่อปี:
                                     </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.detil.income" required />
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.detail.income" required />
                                     <span class="input-group-addon">
                                         บาท
                                     </span> 
@@ -144,7 +112,7 @@
                                     <span class="input-group-addon">
                                         เคยขายที่ไหนบ้าง:
                                     </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.detil.experience" required />
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.detail.experience" required />
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -152,7 +120,7 @@
                                     <span class="input-group-addon">
                                         พืชที่สนใจปลูก:
                                     </span> 
-                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.detil.interest" required />
+                                    <input type="text" class="form-control" placeholder="" ng-model="ctrl.register.detail.interest" required />
                                 </div>
                             </div>
                         </div>
@@ -161,43 +129,44 @@
                                 <div class="text-center">
                                     <p>รูปไร่,สวน</p>
                                     <span>
-                                        <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                        <img ng-src="media/{{ctrl.register.prop_img_0}}" alt="" width="200" height="200">
                                     </span>
-                                    <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                    <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 0)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="text-center">
                                     <p>รูปผลผลิต</p>
                                     <span>
-                                        <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                        <img ng-src="media/{{ctrl.register.prop_img_1}}" alt="" width="200" height="200">
                                     </span>
-                                    <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                    <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 1)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="text-center">
                                     <p>รูปผลผลิต</p>
                                     <span>
-                                        <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                        <img ng-src="media/{{ctrl.register.prop_img_2}}" alt="" width="200" height="200">
                                     </span>
-                                    <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                    <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 2)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="text-center">
                                     <p>รูปผลผลิต</p>
                                     <span>
-                                        <img src="/media/image/none/noimage.jpg" alt="" width="200" height="200">
+                                        <img ng-src="media/{{ctrl.register.prop_img_3}}" alt="" width="200" height="200">
                                     </span>
-                                    <input class="center-block" type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                    <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 3)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div style="margin-top: 20px" class="form-group">
                         <div class="col-sm-12 controls">
-                            <button type="submit" class="btn btn-success login-btn" value="Register" ng-click="ctrl.submit(appForm)">Register</button>
+                            <button type="submit" class="btn btn-success login-btn" value="Register" ng-click="ctrl.submit(appForm)">Submit</button>
+                            <button type="button" class="btn btn-danger login-btn" ui-sref="home">Cancel</button>
                         </div>
                     </div>
                 </form>

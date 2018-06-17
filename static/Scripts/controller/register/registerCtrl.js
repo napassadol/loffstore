@@ -97,21 +97,34 @@ function( $rootScope, $scope, registerApi){
 				function successCallBack(response){
 					response = response.plain()
 					if(response.status == "Failed"){
-						SweetAlert.swal({
-							title : response.message,
-							confirmButtonColor : '#007AFF'
+						swal({
+							title: "Register Failed",
+							timer: 1200,
+							showCancelButton: false,
+							showConfirmButton: false,
+							type: 'error'
 						});
 					}
 					else{
+						swal({
+							title: "Register Success",
+							timer: 1200,
+							showCancelButton: false,
+							showConfirmButton: false,
+							type: 'success'
+						});
 						window.location.href = "/#/login"
 					}
 				}
 			)
 		}
 		else{
-			SweetAlert.swal({
-				title : valid.message,
-				confirmButtonColor : '#007AFF'
+			swal({
+				title: valid.message,
+				timer: 1200,
+				showCancelButton: false,
+				showConfirmButton: false,
+				type: 'error'
 			});
 		}
 	}

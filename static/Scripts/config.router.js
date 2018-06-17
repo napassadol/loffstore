@@ -39,6 +39,11 @@ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider',
                 templateUrl: "/static/partials/product_post_buy.html",
                 resolve: loadSequence('productPostCtrl')
             })
+            .state('product/detail', {
+                url: '/product',
+                templateUrl: "/static/partials/product_details.html",
+                resolve: loadSequence('productDetailCtrl')
+            })
             .state('contact', {
                 url: '/contact',
                 templateUrl: "/static/partials/product_details.html"

@@ -7,4 +7,8 @@ angular.module('app').service('productApi', function(Restangular) {
     this.postProductSell = function(data){
         return Restangular.all('post_product_sell/').post(data)
     }
+
+    this.getUserInfo = function(data){
+        return Restangular.all('get_user_data/').post(data)
+    }
 })

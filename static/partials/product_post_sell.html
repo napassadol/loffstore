@@ -69,7 +69,7 @@
                                         ราคา :
                                     </span> 
                                     <span class="input-group-addon" style="color:red;">*</span>
-                                    <input type="text" style="margin-top: -3%;" class="form-control text-center" placeholder="" ng-model="ctrl.register.firstname" required />
+                                    <input type="text" style="margin-top: -3%;" class="form-control text-center" placeholder="" ng-model="ctrl.data.price" required />
                                     <span class="input-group-addon">
                                         บาท / {{ctrl.data.unit}}
                                     </span>
@@ -95,7 +95,7 @@
                                 <div class="input-group">
                                     <label for="input1" style="font-weight: normal;">ตำบล/แขวง  <span style="color:red;">*</span></label>
                                     <span class="plain-select">
-                                        <select class="language-select" ng-model="ctrl.data.sub_district" ng-options="item as item.name for item in ctrl.sub_district | filter : {'amphoe_pid' : ctrl.data.district.pid}""></select>
+                                        <select class="language-select" ng-model="ctrl.data.sub_district" ng-options="item as item.name for item in ctrl.sub_district | filter : {'amphoe_pid' : ctrl.data.district.pid}"></select>
                                     </span> 
                                 </div>
                             </div>

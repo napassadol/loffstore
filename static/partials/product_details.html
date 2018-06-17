@@ -2,70 +2,51 @@
 <section class="container page-details-product">
     <div class="row">
         <div class="col-md-12 table-padding" ng-controller="listProductsCtrl">
-                <div class="panel panel-info-full" ng-controller="detailsCtrl">
+ 
+                <div class="panel panel-info-full" ng-controller="productDetailCtrl as ctrl">
+                    
                     <div class="list-product">
+                        <div class="col-md-3 my-shop-animation">
+                            <!-- <div class="box-prod">
+                                <div class="box-img-book">
+                                    <img ng-src="media/{{ctrl.data.product_img_0}}">
+                                </div>
+                            </div> -->
+                            <div class="slider">
+                                <div id="slider" class="flexslider .flexslider-attachments">
+                                    <ul class="slides">
+                                        <li data-thumb="static/images/slider/mini-slider/thumb2.jpg"><img ng-src="media/{{ctrl.data.product_img_0}}" alt="" /></li>
+                                        <li data-thumb="static/images/slider/mini-slider/thumb3.jpg"><img ng-src="media/{{ctrl.data.product_img_1}}" alt="" /></li>
+                                        <li data-thumb="static/images/slider/mini-slider/thumb2.jpg"><img ng-src="media/{{ctrl.data.product_img_2}}" alt="" /></li>
+                                        <li data-thumb="static/images/slider/mini-slider/thumb2.jpg"><img ng-src="media/{{ctrl.data.product_img_3}}" alt="" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="col-md-9 box-desc-detail">
-                            <span>
-                                <img ng-src="{{ctrl.data.image_0}}" alt="" width="200" height="200">
-                            </span>
-                            <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 0)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
+                                <h2 class="title-product">{{ctrl.data.name}}</h2>
+
+                                <p class="author-txt"><span>Amount: </span>{{ctrl.data.area}} {{ctrl.data.unit}}</p>
+
+                                <p class="book-price"> {{ctrl.data.price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}/{{ctrl.data.unit}}<span ng-class="{'vis-hidden': data.first_price == 0.00}"> {{product.first_price * selectCurrency.rate | currency : selectCurrency.currencySymbol}}</span></p>
+
+                                <div class="box-btn-shop">
+                                    <div class="bt-img"><button type="button" ng-click="addProduct(product, 1)" class="btn btn-add-cart"><i class="fa fa-shopping-bag"></i>Buy</button></div>
+                                </div>
                         </div>
 
                         <div class="col-md-12 detail-box-desc">
                             <div class="col-md-3"><h1 class="txt-info-vertical">Info</h1></div>
                             <div class="col-md-9 info-box">
-                                <p class="cat-txt"><span>asd: </span><input type="text" class="form-control" id="usr"></p>
-                                <p class="cat-txt"><span>a: </span>{{productDetails.infoProd2}}</p>
-                                <p class="cat-txt"><span>ss: </span>{{productDetails.infoProd3}}</p>
-                                <p class="cat-txt"><span>sdsd: </span>{{productDetails.infoProd4}}</p>
-                                <p class="cat-txt"><span>ddd: </span>{{productDetails.infoProd5}}</p>
-                                <p class="cat-txt"><span>sdsds: </span>{{productDetails.infoProd6}}</p>
-                                <p class="cat-txt"><span>sdsd: </span>{{productDetails.infoProd7}}</p>
-                                <p class="cat-txt"><span>sdsd: </span>{{productDetails.infoProd8}}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12 service-banner">
-                        <div class="slider">
-                            <div id="slider" class="flexslider .flexslider-attachments">
-                                <ul class="slides">
-                                    <li>
-                                        <div class="col-md-8 product-items-details">
-                                            <h3>Samsung</h3>
-                                            <a href="">Smartphone - Accessories </a>
-                                            <div class="product-item-des">Launch Tach Ltd Specialzes in car 
-                                            diagnostics and tessting tools that are mobile- friendly and superior in quality.
-                                            </div>
-                                            <a class="btn" href=""><span>Shop Brand Now </span></a>
-                                        </div>
-                                        <div class="col-md-4"><img src="static/images/books/1.jpg" alt="" /></div>
-                                    </li>
-                                    <li>
-                                        <div class="col-md-8 product-items-details">
-                                            <h3>Apple</h3>
-                                            <a href="">Smartphone - Accessories </a>
-                                            <div class="product-item-des">
-                                                Launch Tach Ltd Specialzes in car
-                                                diagnostics and tessting tools that are mobile- friendly and superior in quality.
-                                            </div>
-                                            <a class="btn" href=""><span>Shop Brand Now </span></a>
-                                        </div>
-                                        <div class="col-md-4"><img src="static/images/books/2.jpg" alt="" /></div>
-                                    </li>
-                                    <li>
-                                        <div class="col-md-8 product-items-details">
-                                            <h3>Logitech</h3>
-                                            <a href="">Smartphone - Accessories </a>
-                                            <div class="product-item-des">
-                                                Launch Tach Ltd Specialzes in car
-                                                diagnostics and tessting tools that are mobile- friendly and superior in quality.
-                                            </div>
-                                            <a class="btn" href=""><span>Shop Brand Now </span></a>
-                                        </div>
-                                        <div class="col-md-4"><img src="static/images/books/3.jpg" alt="" /></div>
-                                    </li>
-                                </ul>
+                                <p class="cat-txt"><span>Owner: </span>{{ctrl.user.firstname}}  {{ctrl.user.lastname}}</p>
+                                <p class="cat-txt"><span>Product Amount: </span>{{ctrl.data.area}} {{ctrl.data.unit}}</p>
+                                <p class="cat-txt"><span>Product Address: </span>{{ctrl.data.location.sub_district.name}}, {{ctrl.data.location.district.name}}, {{ctrl.data.location.city.name}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle4 != null"><span>{{productDetails.infoTitle4}}: </span>{{productDetails.infoProd4}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle5 != null"><span>{{productDetails.infoTitle5}}: </span>{{productDetails.infoProd5}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle6 != null"><span>{{productDetails.infoTitle6}}: </span>{{productDetails.infoProd6}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle7 != null"><span>{{productDetails.infoTitle7}}: </span>{{productDetails.infoProd7}}</p>
+                                <p class="cat-txt" ng-show="productDetails.infoTitle8 != null"><span>{{productDetails.infoTitle8}}: </span>{{productDetails.infoProd8}}</p>
                             </div>
                         </div>
                     </div>

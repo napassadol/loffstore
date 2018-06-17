@@ -17,7 +17,13 @@ angular.module('app').controller('loginCtrl', [ '$rootScope', '$scope', 'loginAp
 							window.location.href = "/"
 						}
 						else{
-							SweetAlert.swal("login fail")
+							swal({
+								title: "Login Failed",
+								timer: 1200,
+								showCancelButton: false,
+								showConfirmButton: false
+				
+							});
 						}
 					}
 				)

@@ -12,22 +12,10 @@
         $scope.money = 100;
         $scope.exchange = [{
             id: 1,
-            label: "Dollar(US)",
-            currencySymbol: "$",
-            symbolPayPal:"USD",
+            label: "Baht",
+            currencySymbol: "฿",
+            symbolPayPal:"THB",
             rate: 1
-        }, {
-            id: 2,
-            label: "Sterling(GBP)",
-            currencySymbol: "£",
-            symbolPayPal: "GBP",
-            rate: 0.702846
-        }, {
-            id: 3,
-            label: "Euro(EU)",
-            currencySymbol: "€",
-            symbolPayPal: "EUR",
-            rate: 0.885055
         }];
 
         $scope.selectCurrency = $scope.exchange[0];

@@ -1,6 +1,6 @@
 angular.module('app').service('homeApi', function(Restangular) {
 
-    this.test = function(){
-        return Restangular.one('test/').get()
+    this.getAllProducts = function(){
+        return Restangular.one('get_all_products/').get()
     }
 })

@@ -45,6 +45,13 @@ app.config(['$ocLazyLoadProvider',
                         '/static/Scripts/controller/product/productPostCtrl.js',
                         '/static/Scripts/service/product/productApi.js'
                     ]
+                },
+                {
+                    name : 'productDetailCtrl',
+                    files: [
+                        '/static/Scripts/controller/product/productDetailCtrl.js',
+                        '/static/Scripts/service/product/productApi.js'
+                    ]
                 }
             ]
         });
