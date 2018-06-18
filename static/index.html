@@ -63,22 +63,22 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <span class="plain-select">
+                                        <!-- <span class="plain-select">
                                             <select class="language-select" ng-model="selectCurrency" ng-options="selectCurrency as selectCurrency.label for selectCurrency in exchange"></select>
-                                        </span>
+                                        </span> -->
 
                                     </li>
                                     <li>
-                                        <a ng-if="!ctrl.login" ui-sref="register">Register</a>
+                                        <a ng-if="!req_login" ui-sref="register">Register</a>
                                     </li>
                                     <li>
-                                        <a ng-if="!ctrl.login" href="#/login">Login</a>
+                                        <a ng-if="!req_login" href="#/login">Login</a>
                                     </li>
                                     <li>
-                                        <a ng-if="ctrl.login" ng-click="ctrl.clearCookies()" href="#/login">Logout</a>
+                                        <a ng-if="req_login" ng-click="ctrl.clearCookies()" href="#/login">Logout</a>
                                     </li>
                                     <li>
-                                        <a ng-if="ctrl.login" href="#/register/extend">User Info</a>
+                                        <a ng-if="req_login" href="#/register/extend">User Info</a>
                                     </li>
 
                                 </ul>

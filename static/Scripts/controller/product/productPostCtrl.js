@@ -50,6 +50,7 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http
                 'unit' : vm.data.unit,
                 'price' : vm.data.price,
                 'user_id' : $cookies.get('auth').data.id,
+                'description': vm.data.description,
                 'location' : {
                     'city' : vm.data.city,
                     'district' : vm.data.district,
@@ -90,28 +91,68 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http
             fd.append('file', files.files[0])
             fd.append('index', index)
             fd.append('user_id',  $cookies.get('auth').data.id)
-            $http.post('post_sample_image/', fd, {
-                withCredentials: true,
-                headers: {'Content-Type': undefined },
-                transformRequest: angular.identity
-            }).then(
-                function(response){
-                    if(response.status == 200){
-                        if(index == 0){
-                            vm.data.image_0 = '/media/' + response.data.data
-                        }
-                        else if(index == 1){
-                            vm.data.image_1 = '/media/' + response.data.data
-                        }
-                        else if(index == 2){
-                            vm.data.image_2 = '/media/' + response.data.data
-                        }
-                        else if(index == 3){
-                            vm.data.image_3 = '/media/' + response.data.data
-                        }
-                    }
-                }
-            )
+            
         }
+
+        function readURL0(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#blah0').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        $("#imgInp0").change(function(){
+            readURL0(this);
+        });
+        function readURL1(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#blah1').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        $("#imgInp1").change(function(){
+            readURL1(this);
+        });
+        function readURL2(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#blah2').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        $("#imgInp2").change(function(){
+            readURL2(this);
+        });
+        function readURL3(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#blah3').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        $("#imgInp3").change(function(){
+            readURL3(this);
+        });
     }
 ])

@@ -16,7 +16,7 @@
                                 <div id="slider" class="flexslider .flexslider-attachments">
                                     <ul class="slides">
                                         <li data-thumb="static/images/slider/mini-slider/thumb2.jpg"><img ng-src="media/{{ctrl.data.product_img_0}}" alt="" /></li>
-                                        <li data-thumb="static/images/slider/mini-slider/thumb3.jpg"><img ng-src="media/{{ctrl.data.product_img_1}}" alt="" /></li>
+                                        <li data-thumb="static/images/slider/mini-slider/thumb2.jpg"><img ng-src="media/{{ctrl.data.product_img_1}}" alt="" /></li>
                                         <li data-thumb="static/images/slider/mini-slider/thumb2.jpg"><img ng-src="media/{{ctrl.data.product_img_2}}" alt="" /></li>
                                         <li data-thumb="static/images/slider/mini-slider/thumb2.jpg"><img ng-src="media/{{ctrl.data.product_img_3}}" alt="" /></li>
                                     </ul>
@@ -42,11 +42,7 @@
                                 <p class="cat-txt"><span>Owner: </span>{{ctrl.user.firstname}}  {{ctrl.user.lastname}}</p>
                                 <p class="cat-txt"><span>Product Amount: </span>{{ctrl.data.area}} {{ctrl.data.unit}}</p>
                                 <p class="cat-txt"><span>Product Address: </span>{{ctrl.data.location.sub_district.name}}, {{ctrl.data.location.district.name}}, {{ctrl.data.location.city.name}}</p>
-                                <p class="cat-txt" ng-show="productDetails.infoTitle4 != null"><span>{{productDetails.infoTitle4}}: </span>{{productDetails.infoProd4}}</p>
-                                <p class="cat-txt" ng-show="productDetails.infoTitle5 != null"><span>{{productDetails.infoTitle5}}: </span>{{productDetails.infoProd5}}</p>
-                                <p class="cat-txt" ng-show="productDetails.infoTitle6 != null"><span>{{productDetails.infoTitle6}}: </span>{{productDetails.infoProd6}}</p>
-                                <p class="cat-txt" ng-show="productDetails.infoTitle7 != null"><span>{{productDetails.infoTitle7}}: </span>{{productDetails.infoProd7}}</p>
-                                <p class="cat-txt" ng-show="productDetails.infoTitle8 != null"><span>{{productDetails.infoTitle8}}: </span>{{productDetails.infoProd8}}</p>
+                                <p class="cat-txt"><span>Description: </span>{{ctrl.data.description}}</p>
                             </div>
                         </div>
                     </div>

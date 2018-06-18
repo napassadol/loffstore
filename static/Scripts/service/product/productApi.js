@@ -11,4 +11,8 @@ angular.module('app').service('productApi', function(Restangular) {
     this.getUserInfo = function(data){
         return Restangular.all('get_user_data/').post(data)
     }
+
+    this.getProductInfo = function(data){
+        return Restangular.all('get_product_info/').post(data)
+    }
 })

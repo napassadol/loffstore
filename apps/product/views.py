@@ -36,8 +36,11 @@ class post_product_sell(APIView):
                 area = int(request_data['area']),
                 unit = request_data['unit'],
                 price = request_data['price'],
-                location = request_data['location']
+                location = request_data['location'],
+                description = request_data['description'],
+                post_type = 0
             )
+            user.sampleimage_set.all().delete()
             return Response({'status' : 'Success', 'data' : ''})
         except Exception as e:
             return Response({'status' : 'Failed', 'message' : str(e)})
@@ -51,6 +54,21 @@ class get_all_products(APIView):
             return_data['data'] = products
         except Exception as e:
             return_data['status'] = "Failed"
+            return_data['message'] = str(e)
+        
+        return Response(return_data)
+
+class get_product_info(APIView):
+    def post(self, response):
+        return_data = dict()
+        return_data['status'] = 'Success'
+        try:
+            data = response.data
+            products = Product.objects.filter(id=data['id']).values()
+            return_data['data'] = products[0]
+        except Exception as e:
+            return_data['status'] = 'Failed'
+            return_data['message'] = str(e)
         
         return Response(return_data)
 

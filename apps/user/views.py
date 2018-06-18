@@ -115,6 +115,7 @@ class add_information(APIView):
             user.prop_img_2 = user.userimage_set.get(index = 2).image if len(user.userimage_set.filter(index = 2)) == 1 else user.prop_img_2
             user.prop_img_3 = user.userimage_set.get(index = 3).image if len(user.userimage_set.filter(index = 3)) == 1 else user.prop_img_3
 
+            user.userimage_set.all().delete()
             user.save()
             return_data['data'] = User.objects.filter(id=data['id']).values()[0]
         except Exception as e:

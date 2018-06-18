@@ -67,14 +67,14 @@ function($rootScope, $scope, cookies, $state){
         data = cookies.get('auth')
         if(data != undefined){
             if(data.status != undefined){
-                vm.login = true
+                $rootScope.req_login = true
             }
             else{
-                vm.login = false
+                $rootScope.req_login = false
             }
         }
         else{
-            vm.login = false
+            $rootScope.req_login = false
         }
     }
 
