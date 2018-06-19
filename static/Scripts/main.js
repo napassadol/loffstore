@@ -3,7 +3,6 @@ function ($rootScope, $state, $stateParams, $localStorage, $timeout, $http, $coo
     $rootScope.footer_show = true
 
     if (!($cookies.get('auth') instanceof Object)) {
-        console.log('initial cookies');
         $cookies.put('auth', {});
     }
 
@@ -94,7 +93,6 @@ function($rootScope, $scope, cookies, $state){
             vm.farmer = false
             vm.factory = true
         }
-        console.log(vm.data);
     }
 }])
 

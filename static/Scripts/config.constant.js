@@ -1,8 +1,8 @@
 app.config(['$ocLazyLoadProvider',
     function ($ocLazyLoadProvider) {
         $ocLazyLoadProvider.config({
-            'debug': true, // For debugging 'true/false'
-            'events': true, // For Event 'true/false'
+            'debug': false, // For debugging 'true/false'
+            'events': false, // For Event 'true/false'
             'modules': [
                 {
                     name : 'registerCtrl',

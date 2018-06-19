@@ -24,7 +24,7 @@ app.controller('registerDetailCtrl', [ '$rootScope', '$scope', 'registerDetailAp
         registerDetailApi.getUserData({'id': $cookies.get('auth').data.id}).then(
             function successCallBack(response){
                 vm.register = response.data
-                image[0] = vm.register.
+                image[0] = vm.register.user_img
                 image[1] = null
                 image[2] = null
                 image[3] = null
