@@ -48,7 +48,28 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http
             vm.sub_district = data.th.tambons
         })
 
+        function validatedata(appForm){
+            if(appForm.$invalid == true){
+                return {'status' : false, 'message': 'Please fill data all the box'}
+            }
+            if(image[0] == null){
+                return {'status' : false, 'message': 'Please choose image'}
+            }
+            return {'status' : true}
+        }
+
         vm.submit = function(appForm){
+            var ret = validatedata(appForm)
+            if(ret.status != true){
+                swal({
+                    title: ret.message,
+                    timer: 1200,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    type: 'error'
+                });
+                return
+            }
             var fd = new FormData();
             fd.append('file_0', image[0])
             fd.append('file_1', image[1])

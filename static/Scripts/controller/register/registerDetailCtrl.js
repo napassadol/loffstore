@@ -24,7 +24,11 @@ app.controller('registerDetailCtrl', [ '$rootScope', '$scope', 'registerDetailAp
         registerDetailApi.getUserData({'id': $cookies.get('auth').data.id}).then(
             function successCallBack(response){
                 vm.register = response.data
-                console.log(vm.register);
+                image[0] = vm.register.
+                image[1] = null
+                image[2] = null
+                image[3] = null
+                image[4] = null
             }
         )
 
@@ -36,7 +40,28 @@ app.controller('registerDetailCtrl', [ '$rootScope', '$scope', 'registerDetailAp
             image[index] = files.files[0]
         }
 
+        function validatedata(appForm){
+            if(appForm.$invalid == true){
+                return {'status' : false, 'message': 'Please fill data all the box'}
+            }
+            if(image[0] == null && vm.register.user_img == 'image/none/noimage.jpg'){
+                return {'status' : false, 'message': 'Please choose user image'}
+            }
+            return {'status' : true}
+        }
+
         vm.submit = function(appForm){
+            ret = validatedata(appForm)
+            if(ret.status != true){
+                swal({
+                    title: ret.message,
+                    timer: 1200,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    type: 'error'
+                });
+                return
+            }
             vm.register.id = $cookies.get('auth').data.id
             registerDetailApi.addInformation(vm.register).then(
                 function successCallBack(response){

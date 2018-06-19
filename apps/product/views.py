@@ -37,7 +37,7 @@ class get_all_products(APIView):
         return_data = dict()
         return_data['status'] = 'Success'
         try:
-            products = Product.objects.all().values()
+            products = Product.objects.all()[:20].values()
             return_data['data'] = products
         except Exception as e:
             return_data['status'] = "Failed"
