@@ -5,22 +5,6 @@ from apps.user.models import User
 from apps.product.models import Product
 
 # Create your views here.
-class post_sample_image(APIView):
-    def post(self, request):
-        try:
-            request_data = request.data
-            user = User.objects.get(id=request_data['user_id'])
-            user_sample_image = user.sampleimage_set.filter(index = int(request_data['index']))
-            if len(user_sample_image) != 0:
-                user_sample_image[0].image.delete(save=True)
-                user_sample_image[0].delete()
-
-            user.sampleimage_set.create(user_id = int(request_data['user_id']), index = int(request_data['index']), image=request_data['file'])
-            img_path = user.sampleimage_set.get(index=int(request_data['index']))
-            return Response({'status' : 'Success', 'data' : img_path.image.name})
-        except Exception as e:
-            return Response({'status' : 'Failed', 'message' : str(e)})
-
 class post_product_sell(APIView):
     def post(self, request):
         try:
@@ -29,18 +13,21 @@ class post_product_sell(APIView):
             
             user.product_set.create(
                 name = request_data['name'],
-                product_img_0 = user.sampleimage_set.get(index = 0).image if len(user.sampleimage_set.filter(index = 0)) == 1 else None,
-                product_img_1 = user.sampleimage_set.get(index = 1).image if len(user.sampleimage_set.filter(index = 1)) == 1 else None,
-                product_img_2 = user.sampleimage_set.get(index = 2).image if len(user.sampleimage_set.filter(index = 2)) == 1 else None,
-                product_img_3 = user.sampleimage_set.get(index = 3).image if len(user.sampleimage_set.filter(index = 3)) == 1 else None,
+                product_img_0 = request_data['file_0'] if request_data['file_0'] != 'null' else None,
+                product_img_1 = request_data['file_1'] if request_data['file_1'] != 'null' else None,
+                product_img_2 = request_data['file_2'] if request_data['file_2'] != 'null' else None,
+                product_img_3 = request_data['file_3'] if request_data['file_3'] != 'null' else None,
                 area = int(request_data['area']),
                 unit = request_data['unit'],
                 price = request_data['price'],
-                location = request_data['location'],
+                location = {
+                    'city': request_data['city'],
+                    'district': request_data['district'],
+                    'sub_district': request_data['sub_district'],
+                },
                 description = request_data['description'],
                 post_type = 0
             )
-            user.sampleimage_set.all().delete()
             return Response({'status' : 'Success', 'data' : ''})
         except Exception as e:
             return Response({'status' : 'Failed', 'message' : str(e)})

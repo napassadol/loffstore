@@ -1,7 +1,12 @@
 app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http', '$cookieStore',
     function( $rootScope, $scope, productApi, $http, $cookies){
         var vm = this
-        var images = []
+        var image = []
+
+        image[0] = null
+        image[1] = null
+        image[2] = null
+        image[3] = null
 
         vm.data = {}
         vm.select = {}
@@ -44,23 +49,27 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http
         })
 
         vm.submit = function(appForm){
-            var post_param = {
-                'name' : vm.data.product_name,
-                'area' : vm.data.amount,
-                'unit' : vm.data.unit,
-                'price' : vm.data.price,
-                'user_id' : $cookies.get('auth').data.id,
-                'description': vm.data.description,
-                'location' : {
-                    'city' : vm.data.city,
-                    'district' : vm.data.district,
-                    'sub_district' : vm.data.sub_district,
-                }
-            }
-            productApi.postProductSell(post_param).then(
+            var fd = new FormData();
+            fd.append('file_0', image[0])
+            fd.append('file_1', image[1])
+            fd.append('file_2', image[2])
+            fd.append('file_3', image[3])
+            fd.append('name', vm.data.product_name)
+            fd.append('area', vm.data.amount)
+            fd.append('unit', vm.data.unit)
+            fd.append('price', vm.data.price)
+            fd.append('user_id', $cookies.get('auth').data.id)
+            fd.append('description', vm.data.description)
+            fd.append('city', vm.data.city)
+            fd.append('district', vm.data.district)
+            fd.append('sub_district', vm.data.sub_district)
+            $http.post('post_product_sell/', fd, {
+                withCredentials: true,
+                headers: {'Content-Type': undefined },
+                transformRequest: angular.identity
+            }).then(
                 function(response){
-                    console.log(response);
-                    if(response.status == 'Failed'){
+                    if(response.data.status == 'Failed'){
                         swal({
                             title: "Failed",
                             timer: 1200,
@@ -85,13 +94,10 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http
 
         vm.uploadfile = function(files, index) {
             if(files.files.length == 0){
+                image[index] = null
                 return
             }
-            var fd = new FormData();
-            fd.append('file', files.files[0])
-            fd.append('index', index)
-            fd.append('user_id',  $cookies.get('auth').data.id)
-            
+            image[index] = files.files[0]
         }
 
         function readURL0(input) {

@@ -2,6 +2,10 @@ from django.db import models
 from django import forms
 from django.contrib.postgres.fields import JSONField
 
+def user_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'image/user/{0}/{1}'.format(instance.id, filename)
+
 class User(models.Model):
     Farmer = 0
     Factory = 1
@@ -10,7 +14,7 @@ class User(models.Model):
         (Factory, "Factory"),
     ]
 
-    user_img = models.ImageField(upload_to = 'image/user/', default = 'image/none/noimage.jpg')
+    user_img = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
     username = models.CharField(max_length=20)
     password = models.CharField(max_length=256)
     firstname = models.CharField(max_length=20, default='')
@@ -26,18 +30,10 @@ class User(models.Model):
     age = models.IntegerField(default=0)
     area = models.IntegerField(default=0)
 
-    prop_img_0 = models.ImageField(upload_to = 'image/user/prop/', default = 'image/none/noimage.jpg')
-    prop_img_1 = models.ImageField(upload_to = 'image/user/prop/', default = 'image/none/noimage.jpg')
-    prop_img_2 = models.ImageField(upload_to = 'image/user/prop/', default = 'image/none/noimage.jpg')
-    prop_img_3 = models.ImageField(upload_to = 'image/user/prop/', default = 'image/none/noimage.jpg')
+    prop_img_0 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
+    prop_img_1 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
+    prop_img_2 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
+    prop_img_3 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
 
     def __str__(self):
         return self.username
-
-class UserImage(models.Model):
-    index = models.IntegerField(default=0)
-    image = models.ImageField(upload_to = 'image/sample/', default = 'image/none/noimage.jpg')
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return str(self.index)

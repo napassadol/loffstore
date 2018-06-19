@@ -26,7 +26,6 @@ urlpatterns = [
     
     url(r'^$', apps_views.HomeView),
     url(r'^post_product_sell/?$', product_views.post_product_sell.as_view(), name = 'post_product_sell'),
-    url(r'^post_sample_image/?$', product_views.post_sample_image.as_view(), name = 'post_sample_image'),
     url(r'^get_all_products/?$', product_views.get_all_products.as_view(), name = 'get_all_products'),
     url(r'^get_product_info/?$', product_views.get_product_info.as_view(), name = 'get_product_info'),
 

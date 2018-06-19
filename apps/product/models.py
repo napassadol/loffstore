@@ -4,6 +4,10 @@ from django.utils import timezone
 from apps.user.models import User
 
 # Create your models here.
+def user_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'image/product/{0}/{1}'.format(instance.user.id, filename)
+
 class Product(models.Model):
     BUY = 0
     SELL = 1
@@ -13,10 +17,10 @@ class Product(models.Model):
     ]
 
     name = models.CharField(max_length=10, default='')
-    product_img_0 = models.ImageField(upload_to = 'image/product/', default = 'image/none/noimage.jpg')
-    product_img_1 = models.ImageField(upload_to = 'image/product/', default = 'image/none/noimage.jpg')
-    product_img_2 = models.ImageField(upload_to = 'image/product/', default = 'image/none/noimage.jpg')
-    product_img_3 = models.ImageField(upload_to = 'image/product/', default = 'image/none/noimage.jpg')
+    product_img_0 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
+    product_img_1 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
+    product_img_2 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
+    product_img_3 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
     area = models.IntegerField(default=0)
     price = models.IntegerField(default=0)
     discount = models.IntegerField(default=0)
@@ -30,11 +34,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
-class SampleImage(models.Model):
-    index = models.IntegerField(default=0)
-    image = models.ImageField(upload_to = 'image/sample/', default = 'image/none/noimage.jpg')
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return str(self.index)

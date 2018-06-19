@@ -78,16 +78,16 @@ class post_user_image(APIView):
     def post(self, request):
         try:
             request_data = request.data
-            user = User.objects.get(id=request_data['user_id'])
-            user_user_image = user.userimage_set.filter(index = int(request_data['index']))
-            if len(user_user_image) != 0:
-                user_user_image[0].image.delete(save=True)
-                user_user_image[0].delete()
-
-            user.userimage_set.create(user_id = int(request_data['user_id']), index = int(request_data['index']), image=request_data['file'])
-            img_path = user.userimage_set.get(index=int(request_data['index']))
-            return Response({'status' : 'Success', 'data' : img_path.image.name})
+            user = User.objects.get(id=request_data['id'])
+            user.user_img = request_data['file_0']
+            user.prop_img_0 = request_data['file_1']
+            user.prop_img_1 = request_data['file_2']
+            user.prop_img_2 = request_data['file_3']
+            user.prop_img_3 = request_data['file_4']
+            user.save()
+            return Response({'status' : 'Success'})
         except Exception as e:
+            print(str(e))
             return Response({'status' : 'Failed', 'message' : str(e)})
 
 class add_information(APIView):
@@ -108,14 +108,6 @@ class add_information(APIView):
             user.detail = data['detail']
             user.age = data['age']
             user.area = data['area']
-
-            user.user_img = user.userimage_set.get(index = 4).image if len(user.userimage_set.filter(index = 4)) == 1 else user.user_img
-            user.prop_img_0 = user.userimage_set.get(index = 0).image if len(user.userimage_set.filter(index = 0)) == 1 else user.prop_img_0
-            user.prop_img_1 = user.userimage_set.get(index = 1).image if len(user.userimage_set.filter(index = 1)) == 1 else user.prop_img_1
-            user.prop_img_2 = user.userimage_set.get(index = 2).image if len(user.userimage_set.filter(index = 2)) == 1 else user.prop_img_2
-            user.prop_img_3 = user.userimage_set.get(index = 3).image if len(user.userimage_set.filter(index = 3)) == 1 else user.prop_img_3
-
-            user.userimage_set.all().delete()
             user.save()
             return_data['data'] = User.objects.filter(id=data['id']).values()[0]
         except Exception as e:

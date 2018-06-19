@@ -8,9 +8,9 @@
                             <div class="text-center">
                                 <p>รูปตัวเอง <span style="color:red;">*</span> </p>
                                 <span>
-                                    <img ng-src="media/{{ctrl.register.user_img}}" alt="" width="200" height="200">
+                                    <img id="blah0" ng-src="media/{{ctrl.register.user_img}}" alt="" width="200" height="200">
                                 </span>
-                                <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 4)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                <input class="center-block" type="file" name="myImage" id="imgInp0" onchange="angular.element(this).scope().ctrl.uploadfile(this, 0)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -80,7 +80,7 @@
                                 <div class="input-group">
                                     <label for="input1" style="font-weight: normal;">อำเภอ/เขต <span style="color:red;">*</span></label>
                                     <span class="plain-select">
-                                            <select class="language-select" ng-model="ctrl.register.address.district" ng-options="item as item.name for item in ctrl.district | filter : {'changwat_pid' : ctrl.data.city.pid}"></select>
+                                            <select class="language-select" ng-model="ctrl.register.address.district" ng-options="item as item.name for item in ctrl.district | filter : {'changwat_pid' : ctrl.register.address.city.pid}"></select>
                                     </span>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                 <div class="input-group">
                                     <label for="input1" style="font-weight: normal;">ตำบล/แขวง  <span style="color:red;">*</span></label>
                                     <span class="plain-select">
-                                        <select class="language-select" ng-model="ctrl.register.address.sub_district" ng-options="item as item.name for item in ctrl.sub_district | filter : {'amphoe_pid' : ctrl.data.district.pid}"></select>
+                                        <select class="language-select" ng-model="ctrl.register.address.sub_district" ng-options="item as item.name for item in ctrl.sub_district | filter : {'amphoe_pid' : ctrl.register.address.district.pid}"></select>
                                     </span> 
                                 </div>
                             </div>
@@ -129,36 +129,36 @@
                                 <div class="text-center">
                                     <p>รูปไร่,สวน</p>
                                     <span>
-                                        <img ng-src="media/{{ctrl.register.prop_img_0}}" alt="" width="200" height="200">
+                                        <img id="blah1" ng-src="media/{{ctrl.register.prop_img_0}}" alt="" width="200" height="200">
                                     </span>
-                                    <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 0)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                    <input class="center-block" type="file" name="myImage" id="imgInp1" onchange="angular.element(this).scope().ctrl.uploadfile(this, 1)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="text-center">
                                     <p>รูปผลผลิต</p>
                                     <span>
-                                        <img ng-src="media/{{ctrl.register.prop_img_1}}" alt="" width="200" height="200">
+                                        <img id="blah2" ng-src="media/{{ctrl.register.prop_img_1}}" alt="" width="200" height="200">
                                     </span>
-                                    <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 1)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                    <input class="center-block" type="file" name="myImage" id="imgInp2" onchange="angular.element(this).scope().ctrl.uploadfile(this, 2)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="text-center">
                                     <p>รูปผลผลิต</p>
                                     <span>
-                                        <img ng-src="media/{{ctrl.register.prop_img_2}}" alt="" width="200" height="200">
+                                        <img id="blah3" ng-src="media/{{ctrl.register.prop_img_2}}" alt="" width="200" height="200">
                                     </span>
-                                    <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 2)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                    <input class="center-block" type="file" name="myImage" id="imgInp3" onchange="angular.element(this).scope().ctrl.uploadfile(this, 3)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="text-center">
                                     <p>รูปผลผลิต</p>
                                     <span>
-                                        <img ng-src="media/{{ctrl.register.prop_img_3}}" alt="" width="200" height="200">
+                                        <img id="blah4" ng-src="media/{{ctrl.register.prop_img_3}}" alt="" width="200" height="200">
                                     </span>
-                                    <input class="center-block" type="file" name="myImage" onchange="angular.element(this).scope().ctrl.uploadfile(this, 3)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
+                                    <input class="center-block" type="file" name="myImage" id="imgInp4" onchange="angular.element(this).scope().ctrl.uploadfile(this, 4)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 30%;"/>
                                 </div>
                             </div>
                         </div>

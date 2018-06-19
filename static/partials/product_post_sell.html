@@ -12,25 +12,25 @@
                                 <span>
                                     <img id="blah0" ng-src="{{ctrl.data.image_0}}" alt="" width="200" height="200">
                                 </span>
-                                <input class="center-block" type="file" name="myImage" id="imgInp0" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
+                                <input class="center-block" type="file" name="myImage" id="imgInp0" onchange="angular.element(this).scope().ctrl.uploadfile(this, 0)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
                             </div>
                             <div class="col-md-3">
                                 <span>
                                     <img id="blah1" ng-src="{{ctrl.data.image_1}}" alt="" width="200" height="200">
                                 </span>
-                                <input class="center-block" type="file" name="myImage" id="imgInp1" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
+                                <input class="center-block" type="file" name="myImage" id="imgInp1" onchange="angular.element(this).scope().ctrl.uploadfile(this, 1)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
                             </div>
                             <div class="col-md-3">
                                 <span>
                                     <img id="blah2" ng-src="{{ctrl.data.image_2}}" alt="" width="200" height="200">
                                 </span>
-                                <input class="center-block" type="file" name="myImage" id="imgInp2" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
+                                <input class="center-block" type="file" name="myImage" id="imgInp2" onchange="angular.element(this).scope().ctrl.uploadfile(this, 2)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
                             </div>
                             <div class="col-md-3">
                                 <span>
                                     <img id="blah3" ng-src="{{ctrl.data.image_3}}" alt="" width="200" height="200">
                                 </span>
-                                <input class="center-block" type="file" name="myImage" id="imgInp3" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
+                                <input class="center-block" type="file" name="myImage" id="imgInp3" onchange="angular.element(this).scope().ctrl.uploadfile(this, 3)" accept="image/x-png,image/gif,image/jpeg" style="margin-left: 10%;"/>
                             </div>
                         </div>
                         <div class="col-md-12"></div>
