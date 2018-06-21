@@ -99,7 +99,7 @@
         });
 
         FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
+            // statusChangeCallback(response);
             console.log(response);
         });
     };
