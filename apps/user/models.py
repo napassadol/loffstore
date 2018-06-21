@@ -37,3 +37,17 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
+
+
+class Admin(models.Model):
+    user_img = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
+    username = models.CharField(max_length=20)
+    password = models.CharField(max_length=256)
+    firstname = models.CharField(max_length=20, default='')
+    lastname = models.CharField(max_length=20, default='')
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    authorize = JSONField(blank=True, default={})
+
+    def __str__(self):
+        return self.username
