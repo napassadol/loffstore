@@ -5,8 +5,18 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from apps.user.models import User
 
+from rest_framework import viewsets
+from apps.user.serializers import UserSerializer
+
 
 # Create your views here.
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 class save_data_register(APIView):
     def post(self, request):
         data = request.data
@@ -15,17 +25,7 @@ class save_data_register(APIView):
 
         return_data['status'] = 'Success'
 
-        dup_data = User.objects.all().filter(username = data['username']).values()
-        if len(dup_data) > 0:
-            return_data['status'] = 'Failure'
-            return_data['message'] = 'username already exists'
-
-        dup_data = User.objects.all().filter(email = data['email']).values()
-        if len(dup_data) > 0:
-            return_data['status'] = 'Failure'
-            return_data['message'] = 'email already exists'
-
-        dup_data = User.objects.all().filter(phone = data['phone']).values()
+        dup_data = User.objects.all().filter(email = data['phone']).values()
         if len(dup_data) > 0:
             return_data['status'] = 'Failure'
             return_data['message'] = 'phone already exists'
@@ -38,26 +38,79 @@ class save_data_register(APIView):
         if return_data['status'] == 'Success':
             if user_type == 'Farmer':
                 register = User(
-                    username = data['username'],
+                    username = data['phone'],
                     password = hashlib.sha256(data['password'].encode()).hexdigest(),
-                    firstname = data['first_name'],
-                    lastname = data['last_name'],
-                    email = data['email'],
+                    firstname = data.get('first_name', ''),
+                    lastname = data.get('last_name', ''),
+                    email = data.get('email', ''),
                     phone = data['phone'],
                     user_type = User.Farmer,
                     verify = False,
                 )
             elif user_type == 'Factory':
                 register = User(
-                    username = data['username'],
+                    username = data.get('phone', ''),
                     password = hashlib.sha256(data['password'].encode()).hexdigest(),
-                    factory_name = data['factory_name'],
-                    email = data['email'],
-                    phone = data['phone'],
+                    factory_name = data.get('factory_name', ''),
+                    email = data.get('email', ''),
+                    phone = data.get('phone', ''),
                     user_type = User.Factory,
                     verify = False
                 )
             register.save()
+            
+        return Response(return_data)
+
+class save_data_register_fb(APIView):
+    def post(self, request):
+        data = request.data
+        user_type = ''
+        return_data = dict()
+
+        return_data['status'] = 'Success'
+
+        dup_data = User.objects.all().filter(username = data['username']).values()
+        if len(dup_data) > 0:
+            return_data['status'] = 'Failure'
+            return_data['message'] = 'username already exists'
+
+        # dup_data = User.objects.all().filter(email = data['email']).values()
+        # if len(dup_data) > 0:
+        #     return_data['status'] = 'Failure'
+        #     return_data['message'] = 'email already exists'
+        
+        user_type = data['user_type']
+
+        try:
+            if return_data['status'] == 'Success':
+                if user_type == 'Farmer':
+                    register = User(
+                        username = data['username'],
+                        password = hashlib.sha256(data['username'].encode()).hexdigest(),
+                        firstname = data['first_name'],
+                        lastname = data['last_name'],
+                        email = data['email'],
+                        user_type = User.Farmer,
+                        facebook_account = True,
+                        verify = True
+                    )
+                elif user_type == 'Factory':
+                    register = User(
+                        username = data['username'],
+                        password = hashlib.sha256(data['username'].encode()).hexdigest(),
+                        firstname = data['first_name'],
+                        lastname = data['last_name'],
+                        factory_name = data['first_name'] + " " + data['last_name'],
+                        email = data['email'],
+                        user_type = User.Factory,
+                        verify = True,
+                        facebook_account = True
+                    )
+                register.save()
+                return_data['data'] = User.objects.filter(username=data['username'], facebook_account=True).values()[0]
+        except Exception as e:
+            return_data['status'] = 'Failure'
+            return_data['message'] = str(e)
             
         return Response(return_data)
 

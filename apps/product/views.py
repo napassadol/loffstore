@@ -17,7 +17,7 @@ class post_product_sell(APIView):
                 product_img_1 = request_data['file_1'] if request_data['file_1'] != 'null' else None,
                 product_img_2 = request_data['file_2'] if request_data['file_2'] != 'null' else None,
                 product_img_3 = request_data['file_3'] if request_data['file_3'] != 'null' else None,
-                area = int(request_data['area']),
+                amount = int(request_data['amount']),
                 unit = request_data['unit'],
                 price = request_data['price'],
                 location = {
@@ -37,7 +37,7 @@ class get_all_products(APIView):
         return_data = dict()
         return_data['status'] = 'Success'
         try:
-            products = Product.objects.all()[:20].values()
+            products = Product.objects.all().order_by('id').reverse()[:200].values()
             return_data['data'] = products
         except Exception as e:
             return_data['status'] = "Failed"

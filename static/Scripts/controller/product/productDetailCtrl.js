@@ -1,4 +1,4 @@
-app.controller('productDetailCtrl', [ '$rootScope', '$scope', 'productApi', '$http', '$cookieStore', '$location',
+angular.module('app').controller('productDetailCtrl', [ '$rootScope', '$scope', 'productApi', '$http', '$cookieStore', '$location',
     function( $rootScope, $scope, productApi, $http, $cookies, $location){
         var vm = this
         vm.image = []

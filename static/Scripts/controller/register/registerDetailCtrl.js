@@ -1,4 +1,4 @@
-app.controller('registerDetailCtrl', [ '$rootScope', '$scope', 'registerDetailApi', '$cookieStore', '$http',
+angular.module('app').controller('registerDetailCtrl', [ '$rootScope', '$scope', 'registerDetailApi', '$cookieStore', '$http',
     function( $rootScope, $scope, registerDetailApi, $cookies, $http){
         var vm = this
         vm.register = {}

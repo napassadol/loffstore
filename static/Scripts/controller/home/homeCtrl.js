@@ -1,5 +1,5 @@
 'use strict'
-app.controller('homeCtrl', [  '$rootScope', '$scope', 'homeApi', '$http', '$cookieStore', 
+angular.module('app').controller('homeCtrl', [  '$rootScope', '$scope', 'homeApi', '$http', '$cookieStore', 
 	function( $rootScope, $scope, homeApi, $http, $cookies){
 		var vm = this
 		homeApi.getAllProducts().then(

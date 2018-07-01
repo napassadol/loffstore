@@ -1,4 +1,4 @@
-app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http', '$cookieStore',
+angular.module('app').controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http', '$cookieStore',
     function( $rootScope, $scope, productApi, $http, $cookies){
         var vm = this
         var image = []
@@ -76,14 +76,14 @@ app.controller('productPostCtrl', [ '$rootScope', '$scope', 'productApi', '$http
             fd.append('file_2', image[2])
             fd.append('file_3', image[3])
             fd.append('name', vm.data.product_name)
-            fd.append('area', vm.data.amount)
+            fd.append('amount', vm.data.amount)
             fd.append('unit', vm.data.unit)
             fd.append('price', vm.data.price)
             fd.append('user_id', $cookies.get('auth').data.id)
             fd.append('description', vm.data.description)
-            fd.append('city', vm.data.city)
-            fd.append('district', vm.data.district)
-            fd.append('sub_district', vm.data.sub_district)
+            fd.append('city', vm.data.city.name)
+            fd.append('district', vm.data.district.name)
+            fd.append('sub_district', vm.data.sub_district.name)
             $http.post('post_product_sell/', fd, {
                 withCredentials: true,
                 headers: {'Content-Type': undefined },

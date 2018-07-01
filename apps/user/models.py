@@ -15,15 +15,16 @@ class User(models.Model):
     ]
 
     user_img = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
-    username = models.CharField(max_length=20)
+    username = models.CharField(max_length=40)
     password = models.CharField(max_length=256)
-    firstname = models.CharField(max_length=20, default='')
-    lastname = models.CharField(max_length=20, default='')
-    factory_name = models.CharField(max_length=20, default='')
+    firstname = models.CharField(max_length=40, default='')
+    lastname = models.CharField(max_length=40, default='')
+    factory_name = models.CharField(max_length=40, default='')
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
     user_type = models.IntegerField(choices = USER_TYPE_CHOICE, default=0)
     verify = models.BooleanField(default=False, blank=True)
+    facebook_account = models.BooleanField(default=False)
 
     address = JSONField(blank=True, default={})
     detail = JSONField(blank=True, default={})

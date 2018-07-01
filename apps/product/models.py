@@ -16,7 +16,7 @@ class Product(models.Model):
         (SELL, "Sell"),
     ]
 
-    name = models.CharField(max_length=10, default='')
+    name = models.CharField(max_length=100, default='')
     product_img_0 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
     product_img_1 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
     product_img_2 = models.ImageField(upload_to = user_directory_path, default = 'image/none/noimage.jpg')
@@ -24,7 +24,7 @@ class Product(models.Model):
     amount = models.IntegerField(default=0)
     price = models.IntegerField(default=0)
     discount = models.IntegerField(default=0)
-    unit = models.CharField(max_length=5, default='')
+    unit = models.CharField(max_length=10, default='')
     date = models.DateTimeField(default=timezone.now, editable=False, blank=True)
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
     post_type = models.IntegerField(choices = POST_TYPE_CHOICE, default=0)

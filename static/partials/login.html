@@ -1,62 +1,73 @@
-﻿<div ng-controller="loginCtrl as ctrl">
-<section class="container">
-    <div class="row">
-        <div class="col-lg-12 table-padding">
-            
-            <div id="loginbox" class="mainbox col-md-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <div class="panel-title">Login</div>
-                        <div class="forgot-pwd">
-                            <button class="btn btn-primary">Forgot your password?</button>
+<div ng-controller="loginCtrl as ctrl" style="background-image: url('/static/images/139 Banner Homepage-01.jpg');width: auto; height: 100%;background-position: center; background-size: cover; background-repeat: no-repeat;">
+    <section class="container">
+        <div class="row">
+            <div class="col-lg-12 table-padding">
+                <div id="loginbox" class="mainbox col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-title">Login</div>
+                            <div class="forgot-pwd">
+                                <button class="btn btn-primary">Forgot your password?</button>
+                            </div>
                         </div>
-                    </div>
-                    <div style="padding-top: 20px" class="panel-body">
-                        <form name="loginForm"  class="form-horizontal" method="post" ng-submit="" form-autofill-fix>
-
-                            <div style="margin-top: 25px" class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-send"></i></span> 
-                                <input type="text" class="form-control" name="username" placeholder="Username or email" ng-model="ctrl.login.username" required />
+                        <div style="padding-top: 20px" class="panel-body">
+                            <div class="col-md-12 text-center" syle="display: flex; justify-content: center;">
+                                    <button class="loginBtn loginBtn--facebook" ng-click="ctrl.FBlogin()">Login with Facebook</button>
                             </div>
-
-                            <div style="margin-top: 25px" class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-lock"></i>
-                                </span> 
-                                <input type="password" class="form-control" name="password" placeholder="Password" ng-model="ctrl.login.password" required />
+                            <div class="col-md-12 text-center" style="display: flex; justify-content: center;">
+                                <button class="loginBtn loginBtn--google" ng-click="">Login with Google</button>
                             </div>
-
-                            <div style="margin-top: 20px" class="form-group">
-                                <!-- Button -->
-                                <div class="col-sm-12 controls">
-                                    <input type="submit" class="btn btn-success login-btn" ng-click="ctrl.submit(loginForm)" value="Log In">
-                                </div><br /><br />
-
-                            </div>
-
-                        </form>
-
+                            <form name="loginForm"  class="form-horizontal" method="post" ng-submit="" form-autofill-fix>
+                                
+                                <div style="margin-top: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-send"></i></span> 
+                                    <input ng-click="ctrl.show_login = true" type="text" class="form-control" name="username" placeholder="Phone or email" ng-model="ctrl.login.username" required />
+                                </div>
+    
+                                <div ng-if="ctrl.show_login" style="margin-top: 25px" class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-lock"></i>
+                                    </span> 
+                                    <input type="password" class="form-control" name="password" placeholder="Password" ng-model="ctrl.login.password" required />
+                                </div>
+    
+                                <div ng-if="ctrl.show_login" style="margin-top: 20px;" class="form-group">
+                                    <div class="col-sm-12 controls" style=" display: flex; justify-content: center;">
+                                        <input type="submit" class="btn btn-success login-btn" ng-click="ctrl.submit(loginForm)" value="Log In" style="width: 210px">
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <div style="display: flex; justify-content: center;">
+                                <button class="loginBtn loginBtn--facebook" ng-click="ctrl.FBlogin()">Login with Facebook</button>
+                            </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <div class="row"><br><br><br><br><br><br></div>
+    <div class="row"><br><br><br><br><br><br></div>
+    <div class="row"><br><br><br><br><br><br></div>
+    <div class="row"><br><br><br><br><br><br></div>
+    <div class="row"><br><br><br><br><br><br></div>
 </div>
-
-<script>
-    $(function () {
-        "use strict";
-        setTimeout(function () {
-            $('.tlt').css("visibility", "visible");
-            $('.tlt').textillate({ in: { effect: 'fadeInDown' } });
-        }, 2000);
-        setTimeout(function () {
-            $('.tlt2').css("visibility", "visible");
-            $('.tlt2').textillate({ in: { effect: 'bounceIn' } });
-        }, 3000);
-        setTimeout(function () {
-            $('.tlt2').css("visibility", "visible");
-        }, 3000);
-    });
-</script>
+    
+    <script>
+        $(function () {
+            "use strict";
+            setTimeout(function () {
+                $('.tlt').css("visibility", "visible");
+                $('.tlt').textillate({ in: { effect: 'fadeInDown' } });
+            }, 2000);
+            setTimeout(function () {
+                $('.tlt2').css("visibility", "visible");
+                $('.tlt2').textillate({ in: { effect: 'bounceIn' } });
+            }, 3000);
+            setTimeout(function () {
+                $('.tlt2').css("visibility", "visible");
+            }, 3000);
+        });
+    
+    </script>
+    

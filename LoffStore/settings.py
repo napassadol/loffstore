@@ -25,7 +25,7 @@ SECRET_KEY = '-5r+&=irvofn4j41_grdt9(*e2a9i$owdmjc3c6!xp0wwoy8sj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.loffstore.com']
 
 
 # Application definition
@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'LoffStore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'loffstore',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 

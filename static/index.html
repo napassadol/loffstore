@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EvoTech</title>
+    <title>LoffStore</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta charset="utf-8">
@@ -38,12 +38,10 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.min.js"></script>
     <link href="static/css/responsive.css" rel="stylesheet" />
 
-   
-
     <!--Google Maps-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeOh_Qw6A5V_xZ9LIrU3ipWoTL827SwUg&v=3.exp" type="text/javascript"></script>
     <!--End Google Maps-->
-    
+
 </head>
 <body ng-app="app" ng-controller="cartOrderCtrl">
 
@@ -66,7 +64,6 @@
                                         <!-- <span class="plain-select">
                                             <select class="language-select" ng-model="selectCurrency" ng-options="selectCurrency as selectCurrency.label for selectCurrency in exchange"></select>
                                         </span> -->
-
                                     </li>
                                     <li>
                                         <a ng-if="!req_login" ui-sref="register">Register</a>
@@ -88,8 +85,6 @@
                 </section>
 
                 <div ng-if="footer_show" ng-include='"static/templates/header.html"'></div>
-
-                <!-- <div ng-view></div> -->
                 <div ui-view></div>
 
                 <!-- <div ng-include='"static/templates/header-footer.html"'></div> -->
@@ -163,13 +158,15 @@
         <!-- UI Select -->
         <script src="/static/components/angular-ui-select/dist/select.min.js"></script>
 
+        <script src="https://connect.facebook.net/th_TH/all.js#xfbml=1&version=v3.0&appId=190074738365427&autoLogAppEvents=1"></script>
+        
+        
         <script src="/static/Scripts/app.js"></script>
         <script src="/static/Scripts/main.js"></script>
         <script src="/static/Scripts/config.router.js"></script>
         <script src="/static/Scripts/config.constant.js"></script>
         <script src="/static/Scripts/cart.js"></script>
         <script src="/static/Scripts/controller.js"></script>
-
     
 </body>
 </html>

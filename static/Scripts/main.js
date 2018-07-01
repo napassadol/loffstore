@@ -1,6 +1,7 @@
-app.run(['$rootScope', '$state', '$stateParams', '$localStorage', '$timeout', '$http', '$cookieStore',
-function ($rootScope, $state, $stateParams, $localStorage, $timeout, $http, $cookies) {
+app.run(['$rootScope', '$state', '$stateParams', '$localStorage', '$timeout', '$http', '$cookieStore', '$window', '$templateCache',
+function ($rootScope, $state, $stateParams, $localStorage, $timeout, $http, $cookies, $window, $templateCache) {
     $rootScope.footer_show = true
+    $templateCache.removeAll()
 
     if (!($cookies.get('auth') instanceof Object)) {
         $cookies.put('auth', {});
@@ -32,7 +33,88 @@ function ($rootScope, $state, $stateParams, $localStorage, $timeout, $http, $coo
         }
     )
 
+    // $window.fbAsyncInit = function() {
+    //     FB.init({
+    //         appId      : '190074738365427',
+    //         cookie     : true,  // enable cookies to allow the server to access 
+    //         xfbml      : true,  // parse social plugins on this page
+    //         version    : 'v3.0' // use graph api version 2.8
+    //     });
+    // };
+
 }])
+///
+app.factory('facebookService', function($q) {
+    return {
+        getStatus: function() {
+            var deferred = $q.defer();
+            FB.getLoginStatus(
+                function(response){
+                    deferred.resolve(response)
+                });
+            return deferred.promise
+        },
+        logout: function() {
+            var deferred = $q.defer();
+            FB.logout(
+                function(response){
+                    deferred.resolve(response)
+                });
+            return deferred.promise
+        },
+        login: function() {
+            var deferred = $q.defer();
+            FB.login(
+                function(response){
+                    deferred.resolve(response)
+                });
+            return deferred.promise
+        },
+        getInfo: function(){
+            var deferred = $q.defer();
+            FB.getLoginStatus(
+                function(response){
+                    if(response.status == "connected"){
+                        FB.api('/me', {
+                            fields: ['id','last_name','first_name', 'email', 'picture']
+                        }, 
+                            function(response) {
+                                deferred.resolve(response)
+                            }
+                        )
+                    }
+                    else{
+                        deferred.resolve({'status' : false})
+                    }
+
+                }
+            );
+            return deferred.promise
+        },
+        test: function(){
+            var deferred = $q.defer();
+            FB.getLoginStatus(
+                function(response){
+                    if(response.status == "connected"){
+                        FB.api('/' + response.authResponse.userID, {
+                            fields: ['id','last_name','first_name', 'email', 'picture']
+                        }, 
+                            function(response) {
+                                deferred.resolve(response)
+                            }
+                        )
+                    }
+                    else{
+                        deferred.resolve({'status' : false})
+                    }
+
+                }
+            );
+            return deferred.promise
+        }
+    }
+});
+
 
 app.factory("user", ['$http', '$cookieStore', function ($http, cookies) {
 
@@ -56,8 +138,8 @@ app.factory("user", ['$http', '$cookieStore', function ($http, cookies) {
     }
 }])
 
-app.controller('cookiesCtrl', [ '$rootScope', '$scope', '$cookieStore', '$state',
-function($rootScope, $scope, cookies, $state){
+app.controller('cookiesCtrl', [ '$rootScope', '$scope', '$cookieStore', '$state', 'facebookService',
+function($rootScope, $scope, cookies, $state, facebookService){
     vm = this
     vm.login = true
     vm.farmer = true
@@ -80,6 +162,13 @@ function($rootScope, $scope, cookies, $state){
     vm.clearCookies = function(){
         cookies.put('auth', {})
         vm.checkCookies()
+        facebookService.logout().then(
+            function(response){
+                console.log("logout");
+                console.log(response);
+            }
+        )
+
         window.location.href = '/#/login'
     }
 

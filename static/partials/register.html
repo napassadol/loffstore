@@ -15,13 +15,20 @@
                     <div style="padding-top: 20px" class="panel-body">
                         <form name="loginForm" ng-submit="" class="form-horizontal regietr-form" method="post" novalidate form-autofill-fix>
 
-                            <div class="input-group">
+                            <!-- <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span> 
                                 <input type="text" class="form-control" placeholder="Username" ng-model="ctrl.register.username" required />
-                            </div>
+                            </div> -->
                             
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-earphone"></i>
+                                </span> 
+                                <input type="tel" class="form-control" name="phon_number" placeholder="Phone Number" ng-model="ctrl.register.phone" required />
+                            </div>
+
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-lock"></i>
@@ -29,14 +36,14 @@
                                 <input type="password" class="form-control" name="password" placeholder="Password" ng-model="ctrl.register.password" required />
                             </div>
 
-                            <div class="input-group">
+                            <!-- <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-send"></i>
                                 </span> 
                                 <input type="email" class="form-control" name="email" placeholder="Email" ng-model="ctrl.register.email" required />
-                            </div>
+                            </div> -->
 
-                            <div ng-if="ctrl.farmer" class="input-group">
+                            <!-- <div ng-if="ctrl.farmer" class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span> 
@@ -48,7 +55,7 @@
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span> 
                                 <input type="text" class="form-control" name="Last Name" placeholder="Last Name" ng-model="ctrl.register.last_name" required />
-                            </div>
+                            </div> -->
 
                             <div ng-if="!ctrl.farmer" class="input-group">
                                 <span class="input-group-addon">
@@ -57,12 +64,12 @@
                                 <input type="text" class="form-control" name="Factory Name" placeholder="Factory Name" ng-model="ctrl.register.factory_name" required />
                             </div>
 
-                            <div class="input-group">
+                            <!-- <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-earphone"></i>
                                 </span> 
                                 <input type="tel" class="form-control" name="phon_number" placeholder="Phone Number" ng-model="ctrl.register.phone" required />
-                            </div>
+                            </div> -->
 
                             <div style="margin-top: 20px" class="form-group">
                                 <!-- Button -->

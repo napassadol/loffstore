@@ -15,15 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
+from django.conf.urls import url, include
 from apps import views as apps_views
 from apps.user import views as user_views
 from apps.product import views as product_views
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'users', user_views.UserViewSet)
+
 urlpatterns = [
     
+    url(r'^', include(router.urls)),
     url(r'^$', apps_views.HomeView),
     url(r'^post_product_sell/?$', product_views.post_product_sell.as_view(), name = 'post_product_sell'),
     url(r'^get_all_products/?$', product_views.get_all_products.as_view(), name = 'get_all_products'),
@@ -31,6 +37,7 @@ urlpatterns = [
 
     url(r'^post_user_image/?$', user_views.post_user_image.as_view(), name = 'post_user_image'),
     url(r'^save_data_register/?$', user_views.save_data_register.as_view(), name = 'register'),
+    url(r'^save_data_register_fb/?$', user_views.save_data_register_fb.as_view(), name = 'register_fb'),
     url(r'^get_user_data/?$', user_views.get_user_data.as_view(), name = 'get_user_data'),
     url(r'^add_information/?$', user_views.add_information.as_view(), name = 'add_information'),
 

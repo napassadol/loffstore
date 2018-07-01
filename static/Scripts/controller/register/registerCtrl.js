@@ -26,18 +26,18 @@ function( $rootScope, $scope, registerApi){
 		return_data.status = true
 		
 		if(data != undefined){
-			if(data.username == undefined){
-				return_data.status = false
-				return_data.message = 'please enter username'
-				return return_data
-			}
-			else{
-				if(data.username.lenght < minimun_len_username || data.username.lenght > maximun_len_username){
-					return_data.status = false
-					return_data.message = 'username must ' + minimun_len_username.toString() + '-' + maximun_len_username.toString() + ' character'
-					return return_data
-				}
-			}
+			// if(data.username == undefined){
+			// 	return_data.status = false
+			// 	return_data.message = 'please enter username'
+			// 	return return_data
+			// }
+			// else{
+			// 	if(data.username.lenght < minimun_len_username || data.username.lenght > maximun_len_username){
+			// 		return_data.status = false
+			// 		return_data.message = 'username must ' + minimun_len_username.toString() + '-' + maximun_len_username.toString() + ' character'
+			// 		return return_data
+			// 	}
+			// }
 	
 			if(data.password == undefined){
 				return_data.status = false
@@ -45,26 +45,26 @@ function( $rootScope, $scope, registerApi){
 				return return_data
 			}
 	
-			if(data.email == undefined){
-				return_data.status = false
-				return_data.message = 'please enter email'
-				return return_data
-			}
+			// if(data.email == undefined){
+			// 	return_data.status = false
+			// 	return_data.message = 'please enter email'
+			// 	return return_data
+			// }
 			
-			if(vm.farmer){
-				if(data.first_name == undefined){
-					return_data.status = false
-					return_data.message = 'please enter first name'
-					return return_data
-				}
+			// if(vm.farmer){
+			// 	if(data.first_name == undefined){
+			// 		return_data.status = false
+			// 		return_data.message = 'please enter first name'
+			// 		return return_data
+			// 	}
 		
-				if(data.last_name == undefined){
-					return_data.status = false
-					return_data.message = 'please enter last name'
-					return return_data
-				}
-			}
-			else{
+			// 	if(data.last_name == undefined){
+			// 		return_data.status = false
+			// 		return_data.message = 'please enter last name'
+			// 		return return_data
+			// 	}
+			// }
+			if(!vm.farmer){
 				if(data.factory_name == undefined){
 					return_data.status = false
 					return_data.message = 'please enter factory name'
